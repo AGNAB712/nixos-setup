@@ -38,7 +38,7 @@
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.nodejs}/bin/node /home/youruser/esp-keyboard-detector/index.js";
+      ExecStart = "${pkgs.nodejs}/bin/node /home/agnab/esp-keyboard-detector/index.js";
       Restart = "always";
       Type = "simple";
       User = "agnab";
