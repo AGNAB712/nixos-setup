@@ -20,7 +20,7 @@
 
   home.file."bin/nixr".text = ''
     #!/usr/bin/env bash
-    exec codium "sudo nixos-rebuild switch --flake /etc/nixos#desktop"
+    exec sudo nixos-rebuild switch --flake /etc/nixos#desktop
   '';
   home.file."bin/nixr".executable = true;
 

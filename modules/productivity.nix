@@ -18,6 +18,8 @@
     samba
     kdePackages.kio-extras
     openssh
+    blender
+    android-studio
   ];
 
   fileSystems."/mnt/homeserver" = {

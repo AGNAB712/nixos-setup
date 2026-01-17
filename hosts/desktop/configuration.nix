@@ -55,7 +55,7 @@
 
   users.users.agnab = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "plugdev" "uucp" "audio" ];
   };
 
   nixpkgs.config.allowUnfree = true;

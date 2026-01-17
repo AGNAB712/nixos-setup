@@ -15,8 +15,22 @@
     dunst
     usbutils
     psmisc
+    flatpak
   ];
 
+  security.polkit.enable = true;
+
+  services.flatpak.enable = true;
+  system.activationScripts.flathub-add = ''
+    if ! flatpak remotes | grep -q "flathub"; then
+      flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
+    fi
+  '';
+  system.activationScripts.bambu-install = ''
+    if ! flatpak list | grep -q "com.bambulab.BambuStudio"; then
+      flatpak install -y flathub com.bambulab.BambuStudio
+    fi
+  '';
   services.tailscale = {
     enable = true;
   };
@@ -32,6 +46,10 @@
     PATH = ["$HOME/bin"];
   };
 
+
+  services.udev.extraRules = ''
+    KERNEL=="ttyUSB*", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", GROUP="users", MODE="0660"
+  '';
 
   systemd.services."esp-keyboard-detector" = {
     description = "esp keyboard detector";
