@@ -20,6 +20,7 @@
     openssh
     blender
     android-studio
+    jellyfin-desktop
   ];
 
   fileSystems."/mnt/homeserver" = {

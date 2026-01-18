@@ -8,11 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/productivity.nix
-      ../../modules/hyprland.nix
-      ../../modules/util.nix
-      ../../modules/fonts.nix
-      ../../modules/gaming.nix
+      ../../modules/desktop/productivity.nix
+      ../../modules/desktop/hyprland.nix
+      ../../modules/desktop/util.nix
+      ../../modules/desktop/fonts.nix
+      ../../modules/desktop/gaming.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
