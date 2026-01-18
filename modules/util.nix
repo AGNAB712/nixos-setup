@@ -64,6 +64,18 @@
     };
   };
 
+  services.udev.enable = true;
+  services.upower.enable = true;
+  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+  boot.extraModprobeConfig = ''
+    options xhci_hcd quirks=270336
+  '';
+
+  hardware.graphics.enable = true;
+
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "modesetting" ]; # intel amd
+
 }
 
 
