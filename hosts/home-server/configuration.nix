@@ -7,13 +7,17 @@
     ../../modules/home-server/server.nix
   ];
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   users.users.agnab = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "plugdev" "uucp" "audio" "docker" ];
   };
 
+  networking.networkmanager.enable = true;
   networking.hostName = "homeserver";
   time.timeZone = "America/Chicago";
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 }
