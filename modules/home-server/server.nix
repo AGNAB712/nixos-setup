@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    git
+    gh
+  ];
   services.openssh.enable = true;
 
   virtualisation.docker = {

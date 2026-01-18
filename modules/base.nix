@@ -13,8 +13,5 @@ in
     (pkgs.writeShellScriptBin "nixy" ''
       exec codium "$HOME/nixos"
     '')
-
-    git
-    gh
   ];
 }
