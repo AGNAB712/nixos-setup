@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/base.nix
-    ../../modules/server/server.nix
+    ../../modules/home-server/server.nix
   ];
 
   networking.hostName = "homeserver";
