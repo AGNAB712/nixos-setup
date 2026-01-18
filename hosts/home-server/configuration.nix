@@ -4,13 +4,10 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/base.nix
-    ../../modules/server.nix
+    ../../modules/server/server.nix
   ];
 
-  networking.hostName = "server";
-
-  services.openssh.enable = true;
-
+  networking.hostName = "homeserver";
   time.timeZone = "America/Chicago";
 
   system.stateVersion = "24.05";

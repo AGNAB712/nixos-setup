@@ -1,19 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  services.openssh = {
+  services.openssh.enable = true;
+
+  virtualisation.docker = {
     enable = true;
-    passwordAuthentication = true;
+    enableOnBoot = true;
   };
 
-  networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-  ];
-
-  services.jellyfin.enable = true;
-  services.samba.enable = true;
-
-  virtualisation.docker.enable = true;
+  users.users.agnab.extraGroups = [ "docker" ];
 }
