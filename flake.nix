@@ -32,10 +32,10 @@
       server = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/server/configuration.nix
+          ./hosts/home-server/configuration.nix
         ];
       };
-      
+
     };
   };
 }
