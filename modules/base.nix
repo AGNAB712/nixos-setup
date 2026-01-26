@@ -2,7 +2,7 @@
 
 let
   flakePath = "/etc/nixos";
-  flakeTarget = config.networking.hostName;
+  flakeTarget = "desktop"; #i will figure out a way to make this better later
 in
 {
   environment.systemPackages = [

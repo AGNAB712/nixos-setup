@@ -16,6 +16,11 @@
     usbutils
     psmisc
     flatpak
+    pkgs.cliphist
+    gparted
+    jq
+    brightnessctl
+    noisetorch
   ];
 
   security.polkit.enable = true;

@@ -18,6 +18,7 @@
   networking.networkmanager.enable = true;
   networking.hostName = "homeserver";
   time.timeZone = "America/Chicago";
+  my.flakeTarget = "home-server";
 
   system.stateVersion = "25.11";
 }

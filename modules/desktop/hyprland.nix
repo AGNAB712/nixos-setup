@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  sddmCorners = pkgs.callPackage ./../packages/sddm-corners/sddm-corners.nix {};
+  sddmCorners = pkgs.callPackage ./../../packages/sddm-corners/sddm-corners.nix {};
 in
 {
   environment.systemPackages = with pkgs; [
@@ -18,6 +18,9 @@ in
     playerctl
     sddmCorners
     pkgs.qt6.qt5compat
+    eww
+    maia-icon-theme
+    cava
   ];  
 
   services.displayManager.sddm = {

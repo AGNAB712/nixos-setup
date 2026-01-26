@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    quickshell.url = "github:quickshell-mirror/quickshell";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -10,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, quickshell, ... }:
   let
     system = "x86_64-linux";
   in {
@@ -19,6 +20,12 @@
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [
+              quickshell.overlays.default
+            ];
+          })
+
           ./hosts/desktop/configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -28,14 +35,6 @@
           }
         ];
       };
-
-      server = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/home-server/configuration.nix
-        ];
-      };
-
     };
   };
 }
