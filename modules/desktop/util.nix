@@ -20,7 +20,7 @@
     gparted
     jq
     brightnessctl
-    noisetorch
+    powertop
   ];
 
   security.polkit.enable = true;
@@ -79,7 +79,12 @@
   hardware.graphics.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "modesetting" ]; # intel amd
+  services.xserver.videoDrivers = [ "modesetting" ];
+
+  powerManagement.cpuFreqGovernor = "powersave"; 
+  powerManagement.cpufreq.max = 3500000;
+  powerManagement.cpufreq.min = 800000;
+  #because my outlets suck
 
 }
 
