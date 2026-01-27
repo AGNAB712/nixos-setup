@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     quickshell.url = "github:quickshell-mirror/quickshell";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,7 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, quickshell, ... }:
+  outputs = { self, nixpkgs, home-manager, quickshell, nix-flatpak, ... }:
   let
     system = "x86_64-linux";
   in {
@@ -25,6 +26,7 @@
               quickshell.overlays.default
             ];
           })
+          nix-flatpak.nixosModules.nix-flatpak
 
           ./hosts/desktop/configuration.nix
           home-manager.nixosModules.home-manager
@@ -33,8 +35,12 @@
             home-manager.useUserPackages = true;
             home-manager.users.agnab = import ./home/agnab.nix;
           }
+
         ];
       };
+
+
+
     };
   };
 }

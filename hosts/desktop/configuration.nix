@@ -6,14 +6,20 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+
       ../../modules/desktop/productivity.nix
       ../../modules/desktop/hyprland.nix
       ../../modules/desktop/util.nix
-      ../../modules/desktop/fonts.nix
       ../../modules/desktop/gaming.nix
+
+      ../../modules/desktop/mounts/server.nix
+      ../../modules/desktop/mounts/windows.nix
+
       ../../modules/base.nix
+      ../../modules/fonts.nix
+      ../../modules/mullvad.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

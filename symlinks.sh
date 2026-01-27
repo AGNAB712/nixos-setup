@@ -6,7 +6,7 @@ DOTFILES=~/nixos/dotfiles
 mkdir -p "$DOTFILES/config"
 mkdir -p "$DOTFILES/home"
 
-CONFIG_FOLDERS=(alacritty fastfetch hypr matugen rofi waybar)
+CONFIG_FOLDERS=(alacritty fastfetch hypr matugen rofi waybar eww)
 
 for folder in "${CONFIG_FOLDERS[@]}"; do
     src="$HOME/.config/$folder"
@@ -20,7 +20,7 @@ for folder in "${CONFIG_FOLDERS[@]}"; do
     fi
 done
 
-HOME_FOLDERS=(bin rofi sddm-theme-corners wallpapers)
+HOME_FOLDERS=(bin rofi sddm-theme-corners wallpapers esp-keyboard-detector)
 
 for folder in "${HOME_FOLDERS[@]}"; do
     src="$HOME/$folder"
