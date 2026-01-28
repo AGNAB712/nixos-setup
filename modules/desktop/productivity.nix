@@ -22,6 +22,10 @@
     jellyfin-desktop
   ];
 
+  services.flatpak.packages = [
+    "com.bambulab.BambuStudio"
+  ];
+
   environment.etc."profile.d/librewolf/sh".text = ''
     export MOZ_ENABLE_WAYLAND=1
     export LIBGL_DRI3_DISABLE=1

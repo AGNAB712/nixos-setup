@@ -5,22 +5,8 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    hyprland
-    alacritty
-    waybar
-    rofi
-    nwg-look
-    matugen
-    swww
-    adwaita-icon-theme
-    gtk-engine-murrine
-    quickshell
-    playerctl
     sddmCorners
     pkgs.qt6.qt5compat
-    eww
-    maia-icon-theme
-    cava
   ];  
 
   services.displayManager.sddm = {
@@ -29,5 +15,7 @@ in
     extraPackages = [ sddmCorners pkgs.qt6.qt5compat ];
     wayland.enable = true;
   };
+
   services.displayManager.defaultSession = "hyprland";
+  programs.hyprland.enable = true;
 }

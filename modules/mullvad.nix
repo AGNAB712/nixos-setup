@@ -13,5 +13,5 @@
     enable = true;
     package = pkgs.mullvad-vpn;
   };
-  #have to specify the package because it isn't updated yet, might be breaking?
+  #have to specify the package because it isn't updated yet
 }

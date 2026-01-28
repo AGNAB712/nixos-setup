@@ -9,14 +9,21 @@
     [
       ./hardware-configuration.nix
 
+      #applications
       ../../modules/desktop/productivity.nix
-      ../../modules/desktop/hyprland.nix
       ../../modules/desktop/util.nix
       ../../modules/desktop/gaming.nix
 
+      #mounts
       ../../modules/desktop/mounts/server.nix
       ../../modules/desktop/mounts/windows.nix
 
+      #window managers (probably DEs later too)
+      ../../modules/desktop/wms/hyprland.nix
+      ../../modules/desktop/wms/sddm.nix
+      ../../modules/desktop/wms/awesomewm.nix
+
+      #global
       ../../modules/base.nix
       ../../modules/fonts.nix
       ../../modules/mullvad.nix
@@ -66,9 +73,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  services.displayManager.defaultSession = "hyprland";
-  programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
   ];
