@@ -1,8 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
-    hyprland
     alacritty
     waybar
     rofi
@@ -16,5 +15,12 @@
     eww
     maia-icon-theme
     cava
+    quickshell
+    imagemagick 
+    jq
   ];  
+
+  programs.hyprland.enable = true;
+ 
+
 }

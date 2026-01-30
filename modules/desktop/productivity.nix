@@ -20,6 +20,11 @@
     blender
     android-studio
     jellyfin-desktop
+    cmake
+    gcc
+    gnumake
+    clang
+
   ];
 
   services.flatpak.packages = [

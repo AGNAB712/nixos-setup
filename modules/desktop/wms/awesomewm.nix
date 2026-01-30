@@ -4,12 +4,12 @@
   services.xserver = {
     enable = true;
 
+    #trust me.... one day i will figure out how to rice this
     windowManager.awesome = {
       enable = true;
       luaModules = with pkgs.luaPackages; [
-        # add any lua packages required by your configuration here
-        luarocks # is the package manager for Lua modules
-        luadbi-mysql # Database abstraction layer
+        luarocks
+        luadbi-mysql
       ];
     };
   };

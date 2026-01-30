@@ -1,20 +1,18 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, hyprdecorPlugin, ... }:
 
-let
-  flakePath = "/etc/nixos";
-  flakeTarget = config.my.flakeTarget or "desktop"; # fallback if not set
-in
 {
   home.username = "agnab";
   home.homeDirectory = "/home/agnab";
   home.stateVersion = "25.05";
 
-
   programs.git.enable = true;
   programs.zsh.enable = true;
 
-  home.packages = with pkgs; [
-  ];
+  #wayland.windowManager.hyprland = {
+   # enable = true;
+   # plugins = [ hyprdecorPlugin ];
+  #};
+
 
   services.cliphist = {
     enable = true;
@@ -28,16 +26,20 @@ in
     allowImages = true;
   };
 
-  systemd.user.services.eww-weather = {
-  Unit = {
-    Description = "eww weather updater";
-  };
+ 
+  
 
-  Service = {
-    Type = "oneshot";
-    ExecStart = "%h/.config/eww/scripts/weather.sh --getdata";
+  # optional: run eww weather updater
+  systemd.user.services.eww-weather = {
+    Unit = {
+      Description = "eww weather updater";
+    };
+
+    Service = {
+      Type = "oneshot";
+      ExecStart = "%h/.config/eww/scripts/weather.sh --getdata";
+    };
   };
-};
 
   systemd.user.timers.eww-weather = {
     Unit = {
@@ -53,5 +55,4 @@ in
       WantedBy = [ "timers.target" ];
     };
   };
-
 }

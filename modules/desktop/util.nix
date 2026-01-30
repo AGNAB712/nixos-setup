@@ -58,8 +58,6 @@
   };
 
   hardware.graphics.enable = true;
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "modesetting" ];
 
   powerManagement.cpuFreqGovernor = "powersave"; 
   powerManagement.cpufreq.max = 3500000;
