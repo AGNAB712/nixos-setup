@@ -20,7 +20,7 @@ for folder in "${CONFIG_FOLDERS[@]}"; do
     fi
 done
 
-HOME_FOLDERS=(bin rofi sddm-theme-corners wallpapers esp-keyboard-detector hyprdecor)
+HOME_FOLDERS=(rofi sddm-theme-corners wallpapers hyprdecor)
 
 for folder in "${HOME_FOLDERS[@]}"; do
     src="$HOME/$folder"

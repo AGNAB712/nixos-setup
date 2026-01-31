@@ -15,13 +15,13 @@
       ../../modules/desktop/gaming.nix
 
       #mounts
-      ../../modules/desktop/mounts/server.nix
-      ../../modules/desktop/mounts/windows.nix
+      ../../modules/mounts/server.nix
+      ../../modules/mounts/windows.nix
 
       #window managers (probably DEs later too)
-      ../../modules/desktop/wms/hyprland.nix
-      ../../modules/desktop/wms/sddm.nix
-      ../../modules/desktop/wms/awesomewm.nix
+      ../../modules/wms/hyprland.nix
+      ../../modules/wms/sddm.nix
+      ../../modules/wms/awesomewm.nix
 
       #global
       ../../modules/base.nix
