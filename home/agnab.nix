@@ -1,4 +1,4 @@
-{ pkgs, hyprdecorPlugin, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.username = "agnab";
@@ -7,12 +7,6 @@
 
   programs.git.enable = true;
   programs.zsh.enable = true;
-
-  #wayland.windowManager.hyprland = {
-   # enable = true;
-   # plugins = [ hyprdecorPlugin ];
-  #};
-
 
   services.cliphist = {
     enable = true;
@@ -26,10 +20,31 @@
     allowImages = true;
   };
 
- 
-  
+  home.sessionVariables = {
+    LB_USER = "agnab";
+    DISCORD_CLIENT_ID = "1466936443141361814"; #if you want this you can have it
+  };
 
-  # optional: run eww weather updater
+  imports = [
+    inputs.nixcord.homeModules.nixcord
+  ];
+  programs.nixcord = {
+    enable = true;
+
+    vesktop.enable = true;
+
+    # Theming
+    quickCss = "/* css goes here */";
+    config = {
+      useQuickCss = false;
+      enabledThemes = ["midnight (vencord)"];
+
+      #plugins = {
+
+      #};
+    };
+  };
+ 
   systemd.user.services.eww-weather = {
     Unit = {
       Description = "eww weather updater";

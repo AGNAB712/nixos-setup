@@ -11,6 +11,7 @@
 
     quickshell.url = "github:quickshell-mirror/quickshell";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
+    nixcord.url = "github:FlameFlag/nixcord";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, quickshell, nix-flatpak, hyprland, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, quickshell, nix-flatpak, hyprland, nixcord, ... }:
   let
     system = "x86_64-linux";
   in
@@ -46,6 +47,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
             home-manager.users.agnab = import ./home/agnab.nix;
           }
 
@@ -53,7 +57,6 @@
           ({ pkgs, ... }: {
             programs.hyprland.enable = true;
             programs.hyprland.package = hyprland.packages.${system}.hyprland;
-            # optional: portal package
             programs.hyprland.portalPackage = hyprland.packages.${system}.xdg-desktop-portal-hyprland;
           })
 
