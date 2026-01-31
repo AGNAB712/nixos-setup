@@ -20,11 +20,6 @@
     allowImages = true;
   };
 
-  home.sessionVariables = {
-    LB_USER = "agnab";
-    DISCORD_CLIENT_ID = "1466936443141361814"; #if you want this you can have it
-  };
-
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
@@ -43,6 +38,22 @@
 
       #};
     };
+  };
+
+  systemd.user.services.lb-discord-rpc = {
+    description = "ListenBrainz Discord RPC";
+    after = [ "network.target" ];
+
+    serviceConfig = {
+      ExecStart = "/home/agnab/lb-discord-rpc/target/release/lb-discord-rpc";
+      Environment = [
+        "LB_USER=agnab"
+        "DISCORD_CLIENT_ID=1466936443141361814"
+      ];
+      Restart = "always";
+    };
+
+    wantedBy = [ "default.target" ];
   };
  
   systemd.user.services.eww-weather = {
