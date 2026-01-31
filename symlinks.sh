@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-DOTFILES=~/nixos/dotfiles
+DOTFILES="$HOME/nixos/dotfiles"
 
 mkdir -p "$DOTFILES/config"
 mkdir -p "$DOTFILES/home"
@@ -12,11 +12,11 @@ for folder in "${CONFIG_FOLDERS[@]}"; do
     src="$HOME/.config/$folder"
     dest="$DOTFILES/config/$folder"
 
-    if [ -e "$dest" ] || [ -L "$dest" ]; then
-        echo "Skipping $folder, already exists"
+    if [ -d "$src" ]; then
+        cp -a "$src" "$dest"
+        echo "copied $folder"
     else
-        ln -s "$src" "$dest"
-        echo "Linked $folder"
+        echo "source $src does not exist"
     fi
 done
 
@@ -26,10 +26,11 @@ for folder in "${HOME_FOLDERS[@]}"; do
     src="$HOME/$folder"
     dest="$DOTFILES/home/$folder"
 
-    if [ -e "$dest" ] || [ -L "$dest" ]; then
-        echo "Skipping $folder, already exists"
+
+    if [ -d "$src" ]; then
+        cp -a "$src" "$dest"
+        echo "copied $folder"
     else
-        ln -s "$src" "$dest"
-        echo "Linked $folder"
+        echo "source $src does not exist"
     fi
 done
