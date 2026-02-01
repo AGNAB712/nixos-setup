@@ -9,6 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      ../../modules/laptop/util.nix
+      ../../modules/laptop/productivity.nix
+
       #window managers (probably DEs later too)
       ../../modules/wms/hyprland.nix
       ../../modules/wms/sddm.nix
