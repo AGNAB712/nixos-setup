@@ -12,7 +12,6 @@
       #window managers (probably DEs later too)
       ../../modules/wms/hyprland.nix
       ../../modules/wms/sddm.nix
-      ../../modules/wms/awesomewm.nix
 
       #global
       ../../modules/base.nix

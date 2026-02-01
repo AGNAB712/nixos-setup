@@ -1,5 +1,0 @@
-[general]
-import = ["~/.config/alacritty/colors.toml"]
-[window]
-opacity = 0.75
-blur = true
