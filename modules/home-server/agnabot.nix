@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  agnabotDir = "/home/agnab/agnabot";
+  agnabotDir = "/home/agnab/agnabot/agnabot";
   agnabotDataDir = "/var/lib/agnabot";
 in
 {
