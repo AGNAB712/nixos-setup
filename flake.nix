@@ -58,6 +58,23 @@
         ];
       };
 
+      homeserver = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/home-server/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+            home-manager.users.agnab = import ./home/agnab.nix;
+          }
+        ];
+      };
+
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
