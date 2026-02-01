@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  agnabotDir = "/home/agnab/agnabot/agnabot";
+  agnabotDir = "/home/agnab/agnabot";
   agnabotDataDir = "/var/lib/agnabot";
 in
 {
@@ -29,8 +29,8 @@ in
       Type = "oneshot";
       WorkingDirectory = agnabotDir;
       ExecStart = ''
-        git fetch --all
-        git reset --hard origin/main
+        /etc/profiles/per-user/agnab/bin/git fetch --all
+        /etc/profiles/per-user/agnab/bin/git reset --hard origin/main
         systemctl --user restart agnabot.service
       '';
       User = "agnab";
