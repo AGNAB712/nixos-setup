@@ -23,7 +23,7 @@
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
-  programs.nixcord = {
+  /*programs.nixcord = {
     enable = true;
 
     vesktop.enable = true;
@@ -38,7 +38,7 @@
 
       #};
     };
-  };
+  };*/
 
   /*systemd.user.services.lb-discord-rpc = {
     description = "ListenBrainz Discord RPC";
