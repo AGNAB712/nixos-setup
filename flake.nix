@@ -62,7 +62,6 @@
         inherit system;
         modules = [
           ./hosts/home-server/configuration.nix
-          (import ./modules/home-server/agnabot.nix { inherit agnabot; })
 
           home-manager.nixosModules.home-manager
           {
@@ -73,6 +72,7 @@
             };
             home-manager.users.agnab = import ./home/agnab.nix;
           }
+          (import ./modules/home-server/agnabot.nix (args: args // { agnabot = agnabot; }))
         ];
       };
 

@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ../../modules/base.nix
     ../../modules/home-server/server.nix
-    ../../modules/home-server/agnabot.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
