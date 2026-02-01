@@ -1,18 +1,17 @@
-{ config, pkgs, agnabot, ... }:
+{ config, pkgs, inputs, ... }:
 
-{
+let
+  mybotPkg = inputs.agnabot.outputs.packages.${pkgs.system}.default;
+in {
   systemd.services.agnabot = {
-    description = "agnabot (very descriptive)";
+    description = "agnabot discord bot";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
-      ExecStart = "${agnabot.default}/bin/agnabot";
+      ExecStart = "${mybotPkg}/bin/agnabot";
       Restart = "always";
       User = "agnab";
     };
   };
 }
-
-
-
