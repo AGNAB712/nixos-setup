@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  sddmCorners = pkgs.callPackage ./../../../packages/sddm-corners/sddm-corners.nix {};
+  sddmCorners = pkgs.callPackage ./../../packages/sddm-corners/sddm-corners.nix {};
 in
 {
   environment.systemPackages = with pkgs; [

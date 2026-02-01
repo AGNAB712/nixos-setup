@@ -40,7 +40,7 @@
     };
   };
 
-  systemd.user.services.lb-discord-rpc = {
+  /*systemd.user.services.lb-discord-rpc = {
     description = "ListenBrainz Discord RPC";
     after = [ "network.target" ];
 
@@ -54,7 +54,7 @@
     };
 
     wantedBy = [ "default.target" ];
-  };
+  };*/
  
   systemd.user.services.eww-weather = {
     Unit = {
