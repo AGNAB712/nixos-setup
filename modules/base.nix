@@ -6,7 +6,7 @@ let
 in
 {
   
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     (pkgs.writeShellScriptBin "nixr" ''
       exec sudo nixos-rebuild switch --flake ${flakePath}#${flakeTarget}
     '')
