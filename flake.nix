@@ -17,6 +17,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agnabot.url = "github:AGNAB712/agnabot";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, quickshell, nix-flatpak, hyprland, nixcord, ... }:
