@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, agnabot, ... }:
 
 {
   systemd.services.agnabot = {
@@ -7,9 +7,9 @@
     wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
-        ExecStart = "${agnabot.packages.${system}.default}/bin/agnabot";
-        Restart = "always";
-        User = "agnab";
+      ExecStart = "${agnabot.packages.${config.system.arch}.default}/bin/agnabot";
+      Restart = "always";
+      User = "agnab";
     };
   };
 }
