@@ -9,7 +9,7 @@ in
     "d ${agnabotDataDir} 0755 agnab users -"
   ];
 
-  systemd.services.agnabot = {
+  systemd.user.services.agnabot = {
     description = "Agnabot Discord bot (nix run)";
     after = [ "network.target" ];
 
@@ -23,7 +23,7 @@ in
     };
   };
 
-  systemd.services.agnabot-update = {
+  systemd.user.services.agnabot-update = {
     description = "update agnabot from git";
     serviceConfig = {
       Type = "oneshot";
@@ -37,7 +37,7 @@ in
     };
   };
 
-  systemd.timers.agnabot-update = {
+  systemd.user.timers.agnabot-update = {
     description = "run agnabot git update every 5 minutes";
     wantedBy = [ "timers.target" ];
     timerConfig = {
