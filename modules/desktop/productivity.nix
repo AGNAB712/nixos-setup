@@ -18,6 +18,7 @@
     blender
     android-studio
     jellyfin-desktop
+    vesktop
   ];
 
 
