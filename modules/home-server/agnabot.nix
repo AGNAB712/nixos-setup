@@ -1,7 +1,7 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, agnabot, ... }:
 
 let
-  mybotPkg = inputs.agnabot.outputs.packages.${pkgs.system}.default;
+  mybotPkg = agnabot.outputs.packages.${pkgs.system}.default;
 in {
   systemd.services.agnabot = {
     description = "agnabot discord bot";
@@ -11,7 +11,7 @@ in {
     serviceConfig = {
       ExecStart = "${mybotPkg}/bin/agnabot";
       Restart = "always";
-      User = "agnab";
+      EnvironmentFile = "/etc/agnabot.env";
     };
   };
 }
