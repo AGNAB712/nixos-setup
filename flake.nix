@@ -72,10 +72,10 @@
             };
             home-manager.users.agnab = import ./home/agnab.nix;
           }
-	];
-	  specialArgs = {
-    inherit agnabot; # injects agnabot into all nixos modules
-  };
+	      ];
+        specialArgs = {
+          inherit agnabot;
+        };
       };
 
 

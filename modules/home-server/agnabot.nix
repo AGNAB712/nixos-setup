@@ -7,7 +7,7 @@
     wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
-      ExecStart = "${agnabot.packages.${config.system.arch}.default}/bin/agnabot";
+      ExecStart = "${agnabot.default}/bin/agnabot";
       Restart = "always";
       User = "agnab";
     };
