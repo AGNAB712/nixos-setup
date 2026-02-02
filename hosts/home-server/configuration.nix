@@ -5,7 +5,11 @@
     ./hardware-configuration.nix
     ../../modules/base.nix
     ../../modules/home-server/server.nix
+    ../../modules/home-server/agnabot.nix
   ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -18,7 +22,6 @@
   networking.networkmanager.enable = true;
   networking.hostName = "homeserver";
   time.timeZone = "America/Chicago";
-  my.flakeTarget = "home-server";
 
   system.stateVersion = "25.11";
 }

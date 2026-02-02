@@ -23,38 +23,7 @@
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
-  programs.nixcord = {
-    enable = true;
 
-    vesktop.enable = true;
-
-    # Theming
-    quickCss = "/* css goes here */";
-    config = {
-      useQuickCss = false;
-      enabledThemes = ["midnight (vencord)"];
-
-      #plugins = {
-
-      #};
-    };
-  };
-
-  /*systemd.user.services.lb-discord-rpc = {
-    description = "ListenBrainz Discord RPC";
-    after = [ "network.target" ];
-
-    serviceConfig = {
-      ExecStart = "/home/agnab/lb-discord-rpc/target/release/lb-discord-rpc";
-      Environment = [
-        "LB_USER=agnab"
-        "DISCORD_CLIENT_ID=1466936443141361814"
-      ];
-      Restart = "always";
-    };
-
-    wantedBy = [ "default.target" ];
-  };*/
  
   systemd.user.services.eww-weather = {
     Unit = {

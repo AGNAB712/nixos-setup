@@ -17,9 +17,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agnabot.url = "github:AGNAB712/agnabot";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, quickshell, nix-flatpak, hyprland, nixcord, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, quickshell, nix-flatpak, hyprland, nixcord, agnabot, ... }:
   let
     system = "x86_64-linux";
   in
@@ -55,6 +57,27 @@
           })
         ];
       };
+
+      homeserver = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/home-server/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+            home-manager.users.agnab = import ./home/agnab.nix;
+          }
+	      ];
+        specialArgs = {
+          inherit agnabot;
+        };
+      };
+
 
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;

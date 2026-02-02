@@ -21,6 +21,9 @@
     jq
     brightnessctl
     powertop
+    cmatrix
+    pipes
+    clock-rs
   ];
 
   security.polkit.enable = true;
