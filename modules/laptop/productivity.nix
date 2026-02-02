@@ -12,9 +12,10 @@
     kdePackages.qtsvg
     kdePackages.kio-extras
     openssh
-    blender
     android-studio
     jellyfin-desktop
+    moonlight-qt
+    mission-center
   ];
 
 

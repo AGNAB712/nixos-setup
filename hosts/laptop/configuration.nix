@@ -6,11 +6,13 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
 
+      #laptop config
       ../../modules/laptop/util.nix
       ../../modules/laptop/productivity.nix
+      ../../modules/laptop/gaming.nix
 
       #window managers (probably DEs later too)
       ../../modules/wms/hyprland.nix
@@ -59,10 +61,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-     git
-     gh
-     fastfetch
-     firefox
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
