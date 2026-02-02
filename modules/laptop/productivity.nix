@@ -6,6 +6,7 @@
     pywalfox-native
     pywal
     git
+    gh
     github-desktop
     nodejs
     kdePackages.dolphin

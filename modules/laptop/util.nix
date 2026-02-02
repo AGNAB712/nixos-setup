@@ -23,6 +23,10 @@
     powertop
   ];
 
+  services.gnome.gnome-keyring.enable=true;
+  security.pam.services.hyprland.enableGnomeKeyring = true;
+  security.polkit.enable=true;
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -44,9 +48,8 @@
       };
     };
   };
-  services.blueman.enable = true;
 
-  security.polkit.enable = true;
+  services.blueman.enable = true;
 
   services.tailscale = {
     enable = true;
