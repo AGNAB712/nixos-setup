@@ -17,6 +17,7 @@
     jellyfin-desktop
     moonlight-qt
     mission-center
+    vesktop
   ];
 
 

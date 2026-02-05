@@ -11,8 +11,6 @@
     bibata-cursors
     grim
     flameshot
-    libnotify
-    dunst
     usbutils
     psmisc
     flatpak

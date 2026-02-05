@@ -18,10 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    agnabot.url = "github:AGNAB712/agnabot";
+    wrappers.url = "github:lassulus/wrappers";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, quickshell, nix-flatpak, hyprland, nixcord, agnabot, ... }:
+  outputs = { self, nixpkgs, home-manager, quickshell, nix-flatpak, hyprland, nixcord, wrappers, ... }@inputs:
   let
     system = "x86_64-linux";
   in
@@ -50,9 +50,17 @@
             home-manager.users.agnab = import ./home/agnab.nix;
           }
 
+          #homeless dotfiles via wrappers
           ({ pkgs, ... }: {
             programs.hyprland.enable = true;
-            programs.hyprland.package = hyprland.packages.${system}.hyprland;
+
+            programs.hyprland.package = 
+            wrappers.lib.wrapPackage {
+                package = hyprland.packages.${system}.hyprland;
+                flags = {
+                  "--config" = "~/nixos/dotfiles/hypr/desktop/hyprland.conf";
+                };
+              };
             programs.hyprland.portalPackage = hyprland.packages.${system}.xdg-desktop-portal-hyprland;
           })
         ];
@@ -73,17 +81,14 @@
             home-manager.users.agnab = import ./home/agnab.nix;
           }
 	      ];
-        specialArgs = {
-          inherit agnabot;
-        };
       };
 
 
       laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
+        system = "x86_64-linux";
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
-          ./hosts/laptop/configuration.nix
+          ./hosts/laptop/configuration.nix12
 
           home-manager.nixosModules.home-manager
           {
@@ -95,10 +100,19 @@
             home-manager.users.agnab = import ./home/agnab.nix;
           }
 
+          #speed i need this my dotfiles are kinda homeless
           ({ pkgs, ... }: {
             programs.hyprland.enable = true;
-            programs.hyprland.package = hyprland.packages.${system}.hyprland;
+            programs.hyprland.package = 
+            wrappers.lib.wrapPackage {
+                inherit pkgs;
+                package = hyprland.packages.${system}.hyprland;
+                flags = {
+                  "--config" = "$HOME/nixos/dotfiles/hypr/laptop/hyprland.conf";
+                };
+              }; 
             programs.hyprland.portalPackage = hyprland.packages.${system}.xdg-desktop-portal-hyprland;
+            _module.args.wrappers = wrappers.lib;
           })
         ];
       };

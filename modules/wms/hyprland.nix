@@ -1,12 +1,58 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, wrappers, ... }:
 
+let 
+  alacritty = wrappers.wrapPackage {
+    inherit pkgs;
+    package = pkgs.alacritty;
+    flags = {
+      "--config-file" = "$HOME/nixos/dotfiles/alacritty/alacritty.toml";
+    };
+  };
+
+  matugen = wrappers.wrapPackage {
+    inherit pkgs;
+    package = pkgs.matugen;
+    flags = {
+      "-c" = "$HOME/nixos/dotfiles/matugen/config.toml";
+    };
+  };
+
+  rofi = wrappers.wrapPackage {
+    inherit pkgs;
+    package = pkgs.rofi;
+    flags = {
+      "-theme" = "$HOME/nixos/dotfiles/rofi/launchers/type-1/style-5.rasi";
+    };
+  };
+
+  dunst = wrappers.wrapPackage {
+    inherit pkgs;
+    package = pkgs.dunst;
+    flags = {
+      "-config" = "$HOME/nixos/dotfiles/dunst/dunstrc";
+    };
+  };
+
+  waybar = wrappers.wrapPackage {
+    inherit pkgs;
+    package = pkgs.waybar;
+    flags = {
+      "-c" = "$HOME/nixos/dotfiles/waybar/config.jsonc";
+    };
+  };
+
+  #the actual hyprland wrapped package is in the flake because i wanted different configs for different hosts
+in 
 {
   environment.systemPackages = with pkgs; [
+    matugen
     alacritty
+    dunst
     waybar
     rofi
+
+    libnotify
     nwg-look
-    matugen
     swww
     adwaita-icon-theme
     gtk-engine-murrine
@@ -19,6 +65,8 @@
     imagemagick 
     jq
   ];  
+
+  
 
   programs.hyprland.enable = true;
  

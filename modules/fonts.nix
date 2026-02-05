@@ -19,6 +19,10 @@
     lato
     cantarell-fonts
   ];
+
+  environment.systemPackages = with pkgs; [
+    fontpreview
+  ];
 }
 
 

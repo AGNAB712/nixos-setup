@@ -1,0 +1,70 @@
+@import "colors.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Cantarell", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    min-height: 0;
+    color: @secondary;
+}
+
+window#waybar {
+    border-radius: 12px;
+    color: @on_surface;
+
+    background-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 17px,
+        @surface_bright 17px,
+        @surface_bright 100%
+    );
+    background-color: transparent;
+}
+
+#taskbar button {
+  background-color: @inverse_primary;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin:2px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+#taskbar button.active {
+  background-color: @surface_tint;
+}
+
+tooltip {
+  background: @background;
+}
+tooltip label {
+  color: @on_surface;
+}
+
+#clock {
+    font-size: 25px;
+    font-family: 'SophieMonofr';
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#custom-cat-ear {
+  background-image: url("/home/agnab/hyprdecor/assets/cat/cat_base_colored.png");
+  background-size: 100% 300%;
+  background-repeat: no-repeat;
+  margin-top: 0px;
+}
+#custom-divider {
+  background-color: @primary;
+  font-size: 4px;
+  min-height: 2px;
+  margin: 4px;
+  border-radius: 10px;
+}
+
+
