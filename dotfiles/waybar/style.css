@@ -51,13 +51,22 @@ tooltip label {
     font-family: 'SophieMonofr';
     padding: 10px;
     border-radius: 15px;
+    margin-top: -12px;
+    margin-bottom: -7px;
 }
 
 #custom-cat-ear {
-  background-image: url("/home/agnab/hyprdecor/assets/cat/cat_base_colored.png");
+  background-image: url("/home/agnab/nixos/dotfiles/hyprdecor/assets/cat/cat_base_colored.png");
   background-size: 100% 300%;
   background-repeat: no-repeat;
   margin-top: 0px;
+}
+#custom-smile {
+  background-image: url("/home/agnab/nixos/dotfiles/waybar/smile.png");
+  background-size: 75% 50%;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+  margin-top: 5px;
 }
 #custom-divider {
   background-color: @primary;
@@ -67,4 +76,28 @@ tooltip label {
   border-radius: 10px;
 }
 
+#battery {
+  font-size: 20px;
+  margin-right: 5px;
+}
+#network {
+  font-size: 15px;
+  margin-bottom: -4px;
+  margin-right: 6px;
+}
+#pulseaudio {
+  font-size: 15px;
+  margin-right: 6px;
+}
 
+#tray {
+  background-color: @primary;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+#custom-tray-toggle {
+  background-color: @primary;
+  color: @on_primary;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}

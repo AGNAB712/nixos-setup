@@ -6,6 +6,7 @@
     "margin-bottom": 10,
     "modules-left": [
         "custom/cat-ear",
+        "custom/smile",
         "clock",
         "custom/divider",
         "wlr/taskbar"
@@ -13,6 +14,10 @@
     "modules-center": [
     ],
     "modules-right": [
+        "custom/divider",
+        "pulseaudio",
+        "network",
+        "battery",
         "group/traymenu"
     ],
     "sway/window": {
@@ -32,7 +37,7 @@
         ]
     },
     "battery": {
-        "format": "{capacity}% {icon}",
+        "format": "{icon}",
         "format-icons": [
             "",
             "",
@@ -43,11 +48,17 @@
     },
     "clock": {
 	    "format": "{:%I\n%M}",
-        "format-alt": "{:%a, %d. %b  %H:%M}"
+        "format-alt": "{:%m\n%d}",
+        "tooltip": false
     },
     "custom/cat-ear": {
         "format": " ",
         "tooltip": false
+    },
+    "custom/smile": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
     },
     "custom/divider": {
         "format": " ",
@@ -73,12 +84,12 @@
   },
 
   "custom/tray-toggle": {
-    "format": "󰍜", // icon button
+    "format": "󰍜",
     "tooltip": "Show tray"
   },
 
   "tray": {
-    "icon-size": 18,
+    "icon-size": 24,
     "spacing": 6
   },
     "hyprland/window": {
@@ -87,18 +98,14 @@
     },
     "pulseaudio": {
         "format": "{icon}",
-        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth": "() {icon}",
         "format-muted": "",
         "format-icons": {
             "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
             "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
-            "headphone": "",
             "hands-free": "",
-            "headset": "",
             "phone": "",
             "phone-muted": "",
-            "portable": "",
-            "car": "",
             "default": [
                 "",
                 ""
@@ -111,16 +118,17 @@
         ]
     },
     "network": {
-        "interface": "wlp13s0",
+        "interface": "wlp3s0",
         "format": "{ifname}",
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "", //{signalStrength}%
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50
+        "max-length": 50,
+        "on-click": "networkmanager_dmenu"
     },
     "custom/qstoggle": {
         "exec": "bash -c 'if qs ipc call cool getVisible | grep -q true; then echo \"👁️\"; else echo \"🚫\"; fi'",

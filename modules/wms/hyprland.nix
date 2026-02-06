@@ -38,6 +38,15 @@ let
     package = pkgs.waybar;
     flags = {
       "-c" = "$HOME/nixos/dotfiles/waybar/config.jsonc";
+      "-s" = "$HOME/nixos/dotfiles/waybar/style.css";
+    };
+  };
+
+  fastfetch = wrappers.wrapPackage {
+    inherit pkgs;
+    package = pkgs.fastfetch;
+    flags = {
+      "--config" = "$HOME/nixos/dotfiles/fastfetch/config.jsonc";
     };
   };
 
@@ -50,6 +59,7 @@ in
     dunst
     waybar
     rofi
+    fastfetch
 
     libnotify
     nwg-look
@@ -64,6 +74,7 @@ in
     quickshell
     imagemagick 
     jq
+    networkmanager_dmenu
   ];  
 
   

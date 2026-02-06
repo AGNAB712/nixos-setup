@@ -6,7 +6,6 @@
     pavucontrol
     polkit_gnome
     unzip
-    fastfetch
     nitch
     bibata-cursors
     grim

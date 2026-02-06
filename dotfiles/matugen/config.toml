@@ -6,46 +6,46 @@ command = "swww"
 arguments = ['img', '--transition-type', 'center']
 
 [templates.hyprland]
-input_path = '~/nixos/dotfiles/config/matugen/templates/hyprland-colors.conf'
-output_path = '~/nixos/dotfiles/config/hypr/colors.conf'
+input_path = '~/nixos/dotfiles/matugen/templates/hyprland-colors.conf'
+output_path = '~/nixos/dotfiles/hypr/colors.conf'
 post_hook = 'hyprctl reload'
 
 [templates.alacritty]
-input_path = '~/nixos/dotfiles/config/matugen/templates/alacritty.toml'
-output_path = '~/nixos/dotfiles/config/alacritty/colors.toml'
+input_path = '~/nixos/dotfiles/matugen/templates/alacritty.toml'
+output_path = '~/nixos/dotfiles/alacritty/colors.toml'
 
 [templates.rofi]
-input_path = '~/nixos/dotfiles/config/matugen/templates/rofi-colors.rasi'
-output_path = '~/nixos/dotfiles/config/rofi/colors.rasi'
+input_path = '~/nixos/dotfiles/matugen/templates/rofi-colors.rasi'
+output_path = '~/nixos/dotfiles/rofi/colors.rasi'
 
 [templates.waybar]
-input_path = '~/nixos/dotfiles/config/matugen/templates/colors.css'
-output_path = '~/nixos/dotfiles/config/waybar/colors.css'
-post_hook = '/home/agnab/.config/waybar/scripts/launch.sh & disown'
+input_path = '~/nixos/dotfiles/matugen/templates/colors.css'
+output_path = '~/nixos/dotfiles/waybar/colors.css'
+post_hook = 'pkill waybar; waybar & disown'
 
 [templates.pywalfox]
-input_path = '~/nixos/dotfiles/config/matugen/templates/colors.json'
+input_path = '~/nixos/dotfiles/matugen/templates/colors.json'
 output_path = '~/.cache/wal/colors.json'
 post_hook = 'pkill quickshell && quickshell & pywalfox update'
 
 [templates.dunst]
-input_path = '~/nixos/dotfiles/config/matugen/templates/dunstrc-colors'
-output_path = '~/nixos/dotfiles/config/dunst/dunstrc'
+input_path = '~/nixos/dotfiles/matugen/templates/dunstrc-colors'
+output_path = '~/nixos/dotfiles/dunst/dunstrc'
 post_hook = 'dunstctl reload'
 
 [templates.gtk4]
-input_path = '~/nixos/dotfiles/config/matugen/templates/gtk-colors.css'
+input_path = '~/nixos/dotfiles/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 
 [templates.eww]
-input_path = "~/nixos/dotfiles/config/matugen/templates/eww.scss"
-output_path = "~/nixos/dotfiles/config/eww/colors.scss"
+input_path = "~/nixos/dotfiles/matugen/templates/eww.scss"
+output_path = "~/nixos/dotfiles/eww/colors.scss"
 
 [templates.hyprdecor]
-input_path = '~/nixos/dotfiles/config/matugen/templates/colors.json'
-output_path = '~/nixos/dotfiles/home/hyprdecor/assets/cat/colors.json'
-post_hook = 'exec ~/hyprdecor/assets/cat/matugen-cat.sh'
+input_path = '~/nixos/dotfiles/matugen/templates/colors.json'
+output_path = '~/nixos/dotfiles/hyprdecor/assets/cat/colors.json'
+post_hook = 'exec ~/nixos/dotfiles/hyprdecor/assets/cat/matugen-cat.sh'
 
 [templates.vencord]
-input_path = '~/nixos/dotfiles/config/matugen/templates/midnight-vencord.css'
+input_path = '~/nixos/dotfiles/matugen/templates/midnight-vencord.css'
 output_path = '~/.config/vesktop/themes/colors.css'

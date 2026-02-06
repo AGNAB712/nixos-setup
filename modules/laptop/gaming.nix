@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     mangohud
     lutris
+    ryubing
   ];
   services.sunshine = {
     enable = true;

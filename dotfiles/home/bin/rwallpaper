@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-WALLPAPER_DIR="$HOME/wallpapers/pringle"
-RANDOM_WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)
-matugen image "$RANDOM_WALLPAPER"
