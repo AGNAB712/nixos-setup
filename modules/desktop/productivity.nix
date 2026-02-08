@@ -7,6 +7,7 @@
     pywal
     vscodium
     git
+    gh
     github-desktop
     arduino-ide
     python3

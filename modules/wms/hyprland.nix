@@ -9,14 +9,6 @@ let
     };
   };
 
-  matugen = wrappers.wrapPackage {
-    inherit pkgs;
-    package = pkgs.matugen;
-    flags = {
-      "-c" = "$HOME/nixos/dotfiles/matugen/config.toml";
-    };
-  };
-
   rofi = wrappers.wrapPackage {
     inherit pkgs;
     package = pkgs.rofi;
@@ -54,7 +46,6 @@ let
 in 
 {
   environment.systemPackages = with pkgs; [
-    matugen
     alacritty
     dunst
     waybar
@@ -76,8 +67,6 @@ in
     jq
     networkmanager_dmenu
   ];  
-
-  
 
   programs.hyprland.enable = true;
  

@@ -53,15 +53,16 @@
           #homeless dotfiles via wrappers
           ({ pkgs, ... }: {
             programs.hyprland.enable = true;
-
             programs.hyprland.package = 
             wrappers.lib.wrapPackage {
+                inherit pkgs;
                 package = hyprland.packages.${system}.hyprland;
                 flags = {
-                  "--config" = "~/nixos/dotfiles/hypr/desktop/hyprland.conf";
+                  "--config" = "$HOME/nixos/dotfiles/hypr/desktop/hyprland.conf";
                 };
-              };
+              }; 
             programs.hyprland.portalPackage = hyprland.packages.${system}.xdg-desktop-portal-hyprland;
+            _module.args.wrappers = wrappers.lib;
           })
         ];
       };
