@@ -19,6 +19,7 @@
     jq
     brightnessctl
     powertop
+    rembg
   ];
 
   services.gnome.gnome-keyring.enable=true;

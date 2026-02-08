@@ -21,7 +21,7 @@ let
     inherit pkgs;
     package = pkgs.rofi;
     flags = {
-      "-theme" = "$HOME/nixos/dotfiles/rofi/launchers/type-1/style-5.rasi";
+      "-theme" = "$HOME/nixos/dotfiles/rofi/launchers/custom.rasi";
     };
   };
 
