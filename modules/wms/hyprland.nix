@@ -17,6 +17,14 @@ let
     };
   };
 
+  matugen = wrappers.wrapPackage { 
+    inherit pkgs; 
+    package = pkgs.matugen; 
+    flags = { 
+      "-c" = "$HOME/nixos/dotfiles/matugen/config.toml"; 
+    }; 
+  };
+
   dunst = wrappers.wrapPackage {
     inherit pkgs;
     package = pkgs.dunst;
@@ -46,6 +54,7 @@ let
 in 
 {
   environment.systemPackages = with pkgs; [
+    matugen
     alacritty
     dunst
     waybar

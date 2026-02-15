@@ -29,6 +29,7 @@
       ../../modules/mullvad.nix
     ];
 
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.gnome.gnome-keyring.enable=true;
