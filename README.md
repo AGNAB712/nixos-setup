@@ -1,3 +1,3 @@
-my awesome nixos setup.... 
-\nyou can download it and switch to it by extracting it to ~/nixos and then running `sudo nixos-rebuild switch --flake ~/nixos#{any of the hosts}` if you want
-\nall of my dotfiles are in /dotfiles so you can just Copppy them to your config yeah
+## my awesome nixos setup  
+you can download it and switch to it by extracting it to ~/nixos and then running `sudo nixos-rebuild switch --flake ~/nixos#{any of the hosts}` if you for some reason want an exact copy of my os  
+all of my dotfiles are in /dotfiles so you can just Copppy them to your config yeah
