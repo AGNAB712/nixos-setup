@@ -20,7 +20,14 @@
     brightnessctl
     powertop
     rembg
+    pkgs.xdg-desktop-portal-hyprland
+    system-config-printer
+    colloid-gtk-theme
+    cameractrls
   ];
+
+  /*gtk.theme.package = pkgs.colloid-gtk-theme;
+  gtk.theme.name = "Colloid-Dark";*/
 
   services.gnome.gnome-keyring.enable=true;
   security.pam.services.hyprland.enableGnomeKeyring = true;
@@ -48,7 +55,14 @@
     };
   };
 
+
   services.blueman.enable = true;
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   services.tailscale = {
     enable = true;

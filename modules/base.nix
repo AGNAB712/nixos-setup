@@ -27,7 +27,7 @@ in
     (pkgs.writeShellScriptBin "rwallpaper" ''
       #!/usr/bin/env bash
 
-      WALLPAPER_DIR="$HOME/nixos/dotfiles/wallpapers/pringle/"
+      WALLPAPER_DIR="$HOME/nixos/dotfiles/pringle"
       RANDOM_WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)
       echo "$RANDOM_WALLPAPER"
       matugen image "$RANDOM_WALLPAPER"
