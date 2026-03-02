@@ -16,7 +16,7 @@
       ../../modules/desktop/openclaw.nix
 
       #mounts
-      ../../modules/mounts/server.nix
+      ../../modules/mounts/serverlocal.nix
       ../../modules/mounts/windows.nix
 
       #window managers (probably DEs later too)

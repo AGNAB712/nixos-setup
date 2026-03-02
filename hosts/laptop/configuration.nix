@@ -18,6 +18,9 @@
       ../../modules/base.nix
       ../../modules/fonts.nix
       ../../modules/mullvad.nix
+
+      #mounts
+      ../../modules/mounts/servertailscale.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
