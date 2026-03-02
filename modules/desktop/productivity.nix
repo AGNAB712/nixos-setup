@@ -20,6 +20,11 @@
     android-studio
     jellyfin-desktop
     vesktop
+    neomutt
+    libreoffice
+    reaper
+    bottles
+    kdePackages.kdenlive
   ];
 
 

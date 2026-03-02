@@ -13,6 +13,7 @@
       ../../modules/desktop/productivity.nix
       ../../modules/desktop/util.nix
       ../../modules/desktop/gaming.nix
+      ../../modules/desktop/openclaw.nix
 
       #mounts
       ../../modules/mounts/server.nix
@@ -21,7 +22,7 @@
       #window managers (probably DEs later too)
       ../../modules/wms/hyprland.nix
       ../../modules/wms/sddm.nix
-      ../../modules/wms/awesomewm.nix
+      ../../modules/wms/mangowc.nix
 
       #global
       ../../modules/base.nix
@@ -31,6 +32,14 @@
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "agnab" ];
+
+  services.caddy.virtualHosts."openclaw.nixos.local" = {
+    extraConfig = ''
+      reverse_proxy localhost:8080
+      tls internal
+    '';
+  };
 
   services.gnome.gnome-keyring.enable=true;
   security.pam.services.hyprland.enableGnomeKeyring = true;

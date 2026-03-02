@@ -9,7 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell.url = "github:quickshell-mirror/quickshell";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
     nixcord.url = "github:FlameFlag/nixcord";
 
@@ -19,9 +18,16 @@
     };
 
     wrappers.url = "github:lassulus/wrappers";
+    openclaw.url = "github:openclaw/nix-openclaw"; 
+
+    mango = {
+      url = "github:DreamMaoMao/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, quickshell, nix-flatpak, hyprland, nixcord, wrappers, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, hyprland, nixcord, wrappers, openclaw, mango, ... }@inputs:
   let
     system = "x86_64-linux";
   in
@@ -29,13 +35,8 @@
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [
-
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [
-              quickshell.overlays.default
-            ];
-          })
+        specialArgs = { inherit inputs; }; 
+        modules = [          
 
           nix-flatpak.nixosModules.nix-flatpak
           ./hosts/desktop/configuration.nix
@@ -52,7 +53,6 @@
 
           #homeless dotfiles via wrappers
           ({ pkgs, ... }: {
-            programs.hyprland.enable = true;
             programs.hyprland.package = 
             wrappers.lib.wrapPackage {
                 inherit pkgs;
@@ -63,7 +63,25 @@
               }; 
             programs.hyprland.portalPackage = hyprland.packages.${system}.xdg-desktop-portal-hyprland;
             _module.args.wrappers = wrappers.lib;
+
+            programs.mango.package = 
+            wrappers.lib.wrapPackage {
+                inherit pkgs;
+                package = mango.packages.${system}.mango;
+                flags = {
+                  "-c" = "$HOME/nixos/dotfiles/mango/config.conf";
+                };
+              }; 
           })
+
+          mango.nixosModules.mango
+
+          ({ pkgs, ... }: {
+            environment.systemPackages = with pkgs; [
+            ];
+          })
+          
+
         ];
       };
 
@@ -118,5 +136,6 @@
         ];
       };
     };
+
   };
 }

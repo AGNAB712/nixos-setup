@@ -49,7 +49,7 @@ configuration {
     alternate-urgent-foreground: var(background);
     alternate-active-background: var(active);
     alternate-active-foreground: var(background);
-    font: "Iosevka Nerd Font 10";
+    font: "FreeMono Bold 12";
 }
 
 /*****----- Main Window -----*****/
@@ -151,7 +151,7 @@ element {
     border:                      0px;
     border-radius:               9px;
     border-color:                white;
-    background-color:            transparent;
+    background-color:            rgba(0, 0, 0, 0.15);
     text-color:                  var(background);
     cursor:                      pointer;
 }
@@ -165,7 +165,7 @@ element-icon {
     cursor:                      inherit;
 }
 element-text {
-    background-color:            inherit;
+    background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
     vertical-align:              0.5;

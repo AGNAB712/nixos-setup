@@ -44,7 +44,7 @@ output_path = "~/nixos/dotfiles/eww/colors.scss"
 [templates.hyprdecor]
 input_path = '~/nixos/dotfiles/matugen/templates/colors.json'
 output_path = '~/nixos/dotfiles/hyprdecor/assets/cat/colors.json'
-post_hook = 'exec ~/nixos/dotfiles/hyprdecor/assets/cat/matugen-cat.sh'
+#post_hook = 'exec ~/nixos/dotfiles/hyprdecor/assets/cat/matugen-cat.sh'
 
 [templates.vencord]
 input_path = '~/nixos/dotfiles/matugen/templates/midnight-vencord.css'

@@ -8,6 +8,8 @@
   programs.git.enable = true;
   programs.zsh.enable = true;
 
+  
+
   services.cliphist = {
     enable = true;
     systemdTargets = ["config.wayland.systemd.target"];

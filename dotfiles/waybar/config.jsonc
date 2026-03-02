@@ -1,19 +1,18 @@
 {
     "layer": "top",
     "position": "left",
-    "margin-left": 10,
-    "margin-top": 10,
-    "margin-bottom": 10,
+    "margin-left": 2,
+    "margin-top": 0,
+    "margin-bottom": 0,
     "modules-left": [
-        "custom/cat-ear",
-        "custom/smile",
         "clock",
-        "custom/divider",
-        "wlr/taskbar"
+        "custom/divider"
     ],
     "modules-center": [
+        "wlr/taskbar"
     ],
     "modules-right": [
+        "custom/cat-ear",
         "custom/divider",
         "pulseaudio",
         "network",
@@ -25,8 +24,8 @@
     },
     "wlr/taskbar": {
         "format": "{icon}",
-        "icon-size": 32,
-        "icon-theme": "${i_theme}",
+        "icon-size": 36,
+        "icon-theme": ["pringle"],
             "spacing": 0,
         "tooltip-format": "{title}",
         "on-click": "activate",
@@ -53,7 +52,8 @@
     },
     "custom/cat-ear": {
         "format": " ",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "rofi -show drun"
     },
     "custom/smile": {
         "format": " ",

@@ -14,6 +14,8 @@ let
     package = pkgs.rofi;
     flags = {
       "-theme" = "$HOME/nixos/dotfiles/rofi/launchers/custom.rasi";
+      "-no-levenshtein-sort" = true;
+      "-sort" = true;
     };
   };
 
@@ -25,12 +27,12 @@ let
     }; 
   };
 
-  dunst = wrappers.wrapPackage {
+  wired = wrappers.wrapPackage {
     inherit pkgs;
-    package = pkgs.dunst;
-    flags = {
-      "-config" = "$HOME/nixos/dotfiles/dunst/dunstrc";
-    };
+    package = pkgs.wired;
+    #flags = {
+      #"-config" = "$HOME/nixos/dotfiles/dunst/dunstrc";
+    #};
   };
 
   waybar = wrappers.wrapPackage {
@@ -56,22 +58,24 @@ in
   environment.systemPackages = with pkgs; [
     matugen
     alacritty
-    dunst
+    wired
     waybar
     rofi
     fastfetch
 
+    quickshell
+    qt5.qtbase
+    qt5.qtdeclarative
+    qt5.qtquickcontrols
     libnotify
     nwg-look
     swww
     adwaita-icon-theme
     gtk-engine-murrine
-    quickshell
     playerctl
     eww
     maia-icon-theme
     cava
-    quickshell
     imagemagick 
     jq
     networkmanager_dmenu

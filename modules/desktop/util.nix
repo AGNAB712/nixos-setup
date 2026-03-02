@@ -21,6 +21,7 @@
     cmatrix
     pipes
     clock-rs
+    mission-center
   ];
 
   security.polkit.enable = true;
@@ -59,8 +60,8 @@
 
   hardware.graphics.enable = true;
 
-  powerManagement.cpuFreqGovernor = "powersave"; 
-  powerManagement.cpufreq.max = 3500000;
+  powerManagement.cpuFreqGovernor = "performance"; 
+  powerManagement.cpufreq.max = 4500000;
   powerManagement.cpufreq.min = 800000;
   #because my outlets suck
 
