@@ -13,11 +13,13 @@
     kdePackages.qtsvg
     kdePackages.kio-extras
     openssh
-    android-studio
     jellyfin-desktop
     moonlight-qt
     mission-center
     vesktop
+    gtk3
+    python3
+    gobject-introspection
   ];
 
 

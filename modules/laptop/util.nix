@@ -20,7 +20,18 @@
     brightnessctl
     powertop
     rembg
+    pkgs.xdg-desktop-portal-hyprland
+    system-config-printer
+    colloid-gtk-theme
+    cameractrls
   ];
+
+  /*gtk.theme.package = pkgs.colloid-gtk-theme;
+  gtk.theme.name = "Colloid-Dark";*/
+
+  networking.extraHosts = ''
+    100.76.183.58 homeserver.local 
+  '';#tailscale server
 
   services.gnome.gnome-keyring.enable=true;
   security.pam.services.hyprland.enableGnomeKeyring = true;
@@ -48,7 +59,14 @@
     };
   };
 
+
   services.blueman.enable = true;
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   services.tailscale = {
     enable = true;
@@ -70,7 +88,7 @@
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
     battery = {
-      governor = "powersave";
+      governor = "schedutil";
       turbo = "never";
     };
     charger = {
