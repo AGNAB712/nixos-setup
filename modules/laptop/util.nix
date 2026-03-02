@@ -29,6 +29,10 @@
   /*gtk.theme.package = pkgs.colloid-gtk-theme;
   gtk.theme.name = "Colloid-Dark";*/
 
+  networking.extraHosts = ''
+    100.76.183.58 homeserver.local 
+  '';#tailscale server
+
   services.gnome.gnome-keyring.enable=true;
   security.pam.services.hyprland.enableGnomeKeyring = true;
   security.polkit.enable=true;
@@ -84,7 +88,7 @@
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
     battery = {
-      governor = "powersave";
+      governor = "schedutil";
       turbo = "never";
     };
     charger = {
