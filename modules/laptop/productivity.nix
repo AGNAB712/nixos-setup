@@ -9,13 +9,9 @@
     gh
     github-desktop
     nodejs
-    kdePackages.dolphin
-    kdePackages.qtsvg
-    kdePackages.kio-extras
     openssh
     jellyfin-desktop
     moonlight-qt
-    mission-center
     vesktop
     gtk3
     python3

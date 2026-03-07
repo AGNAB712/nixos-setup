@@ -24,6 +24,7 @@
     system-config-printer
     colloid-gtk-theme
     cameractrls
+    cameractrls-gtk4
   ];
 
   /*gtk.theme.package = pkgs.colloid-gtk-theme;

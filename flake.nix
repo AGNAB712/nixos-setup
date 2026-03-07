@@ -132,7 +132,19 @@
               }; 
             programs.hyprland.portalPackage = hyprland.packages.${system}.xdg-desktop-portal-hyprland;
             _module.args.wrappers = wrappers.lib;
+
+            programs.mango.package = 
+            wrappers.lib.wrapPackage {
+                inherit pkgs;
+                package = mango.packages.${system}.mango;
+                flags = {
+                  "-c" = "$HOME/nixos/dotfiles/mango/config.conf";
+                };
+              }; 
           })
+
+          mango.nixosModules.mango
+
         ];
       };
     };

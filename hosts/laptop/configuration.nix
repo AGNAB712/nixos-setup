@@ -13,6 +13,7 @@
       #window managers (probably DEs later too)
       ../../modules/wms/sddm.nix
       ../../modules/wms/hyprland.nix
+      ../../modules/wms/mangowc.nix
 
       #global
       ../../modules/base.nix
