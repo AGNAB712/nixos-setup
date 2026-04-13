@@ -16,6 +16,8 @@
     gtk3
     python3
     gobject-introspection
+    python313Packages.pip
+
   ];
 
 

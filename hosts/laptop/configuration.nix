@@ -9,6 +9,7 @@
       ../../modules/laptop/util.nix
       ../../modules/laptop/productivity.nix
       ../../modules/laptop/gaming.nix
+      ../../modules/laptop/battery_monitor.nix
 
       #window managers (probably DEs later too)
       ../../modules/wms/sddm.nix

@@ -600,6 +600,21 @@
         "type": "github"
       }
     },
+    "nixos-plymouth": {
+      "locked": {
+        "lastModified": 1758476321,
+        "narHash": "sha256-kP9fSJxZO4vHn9kL3o9h1yxKxUvON/1yvlNIYSH5yq0=",
+        "owner": "BeatLink",
+        "repo": "nixos-plymouth",
+        "rev": "33b308bfc0e9411e5c96bc114b9f7e83e7c7fd2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BeatLink",
+        "repo": "nixos-plymouth",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1769089682,
@@ -761,6 +776,7 @@
         "mango": "mango",
         "nix-flatpak": "nix-flatpak",
         "nixcord": "nixcord",
+        "nixos-plymouth": "nixos-plymouth",
         "nixpkgs": "nixpkgs_2",
         "openclaw": "openclaw",
         "wrappers": "wrappers"

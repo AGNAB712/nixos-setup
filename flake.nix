@@ -25,9 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
+
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, hyprland, nixcord, wrappers, openclaw, mango, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, hyprland, nixcord, wrappers, openclaw, mango, nixos-plymouth, ... }@inputs:
   let
     system = "x86_64-linux";
   in
@@ -146,6 +148,7 @@
           })
 
           mango.nixosModules.mango
+          nixos-plymouth.nixosModules.default 
 
         ];
       };

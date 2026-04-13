@@ -25,6 +25,7 @@
     colloid-gtk-theme
     cameractrls
     cameractrls-gtk4
+    dunst
   ];
 
   /*gtk.theme.package = pkgs.colloid-gtk-theme;
@@ -59,6 +60,7 @@
 
   services.blueman.enable = true;
   services.printing.enable = true;
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
