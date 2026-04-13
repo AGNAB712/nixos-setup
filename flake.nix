@@ -21,7 +21,7 @@
     openclaw.url = "github:openclaw/nix-openclaw"; 
 
     mango = {
-      url = "github:DreamMaoMao/mango";
+      url = "github:mangowm/mango/wl-only";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -65,13 +65,15 @@
             _module.args.wrappers = wrappers.lib;
 
             programs.mango.package = 
-            wrappers.lib.wrapPackage {
+              wrappers.lib.wrapPackage {
                 inherit pkgs;
-                package = mango.packages.${system}.mango;
+                package = (mango.packages.${system}.mango.overrideAttrs (old: {
+                  buildInputs = old.buildInputs ++ [ pkgs.wlroots_0_20 ];
+                }));
                 flags = {
                   "-c" = "$HOME/nixos/dotfiles/mango/config.conf";
                 };
-              }; 
+              };
           })
 
           mango.nixosModules.mango

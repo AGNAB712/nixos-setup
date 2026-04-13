@@ -14,7 +14,7 @@ Rectangle {
         anchors { fill: parent }
 
         source: config.BgSource
-        fillMode: Image.Stretch
+        fillMode: Image.PreserveAspectCrop
         clip: true
     }
 

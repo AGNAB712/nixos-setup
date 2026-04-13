@@ -2,7 +2,7 @@
 [config.wallpaper]
 set = true
 
-command = "swww"
+command = "awww"
 arguments = ['img', '--transition-type', 'center']
 
 [templates.hyprland]
@@ -46,6 +46,14 @@ input_path = '~/nixos/dotfiles/matugen/templates/colors.json'
 output_path = '~/nixos/dotfiles/hyprdecor/assets/cat/colors.json'
 #post_hook = 'exec ~/nixos/dotfiles/hyprdecor/assets/cat/matugen-cat.sh'
 
-[templates.vencord]
-input_path = '~/nixos/dotfiles/matugen/templates/midnight-vencord.css'
-output_path = '~/.config/vesktop/themes/colors.css'
+#[templates.vencord]
+#input_path = '~/nixos/dotfiles/matugen/templates/midnight-vencord.css'
+#output_path = '~/.config/vesktop/themes/colors.css'
+
+[templates.kvantum_kvconfig]
+input_path = '~/nixos/dotfiles/matugen/templates/kvantum-colors.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = '~/nixos/dotfiles/matugen/templates/kvantum-colors.svg'
+output_path = '~/.config/Kvantum/matugen/matugen.svg'

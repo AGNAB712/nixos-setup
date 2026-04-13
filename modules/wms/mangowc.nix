@@ -8,6 +8,6 @@
       ./dependencies/wrapped.nix
     ];
 
-  programs.mango.enable = true; 
+  programs.mango.enable = true;
 
 }

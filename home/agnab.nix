@@ -27,29 +27,5 @@
   ];
 
  
-  systemd.user.services.eww-weather = {
-    Unit = {
-      Description = "eww weather updater";
-    };
-
-    Service = {
-      Type = "oneshot";
-      ExecStart = "%h/.config/eww/scripts/weather.sh --getdata";
-    };
-  };
-
-  systemd.user.timers.eww-weather = {
-    Unit = {
-      Description = "run eww weather updater periodically";
-    };
-
-    Timer = {
-      OnBootSec = "5m";
-      OnUnitActiveSec = "1hr";
-    };
-
-    Install = {
-      WantedBy = [ "timers.target" ];
-    };
-  };
+  
 }

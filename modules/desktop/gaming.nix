@@ -10,14 +10,20 @@
   environment.systemPackages = with pkgs; [
     mangohud
     lutris
+    flitter
+    flatpak
+    ryubing
   ];
+  services.flatpak.enable = true;
   services.sunshine = {
     enable = true;
     autoStart = true;
     capSysAdmin = true;
     openFirewall = true;
   };
-
+  services.flatpak.packages = [
+    "org.vinegarhq.Sober"
+  ];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

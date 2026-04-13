@@ -23,7 +23,20 @@
     clock-rs
     mission-center
     system-config-printer
+    obs-studio
+    (discord.override {
+      # withOpenASAR = true; # can do this here too
+      withVencord = true;
+    })
+    rar
+    openspeedrun
+    keyd
+    parsec-bin
+    py7zr
+    noisetorch
   ];
+
+  programs.noisetorch.enable = true;
 
   security.polkit.enable = true;
     services.printing.enable = true;
@@ -32,6 +45,8 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+
+  xdg.portal.wlr.enable = true;
 
   services.tailscale = {
     enable = true;
@@ -63,6 +78,10 @@
       User = "agnab";
       Environment = "NODE_ENV=production";
     };
+  };
+
+  services.keyd = {
+    enable = true;
   };
 
   hardware.graphics.enable = true;
