@@ -29,7 +29,13 @@
       ../../modules/fonts.nix
       ../../modules/mullvad.nix
     ];
-
+  nixpkgs.overlays = [
+    (final: prev: {
+      openldap = prev.openldap.overrideAttrs (old: {
+        doCheck = false;
+      });
+    })
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "root" "agnab" ];

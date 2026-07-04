@@ -37,12 +37,10 @@
     pkgs.xdg-utils
     pkgs.xdg-desktop-portal
     pkgs.xdg-desktop-portal-gtk
+    python313Packages.uvicorn
+    comic-mandown
+    cloudflared
   ];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
 
   environment.etc."xdg/menus/applications.menu".source =
   "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";

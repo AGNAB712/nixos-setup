@@ -37,4 +37,20 @@
     ];
   };
 
+  fileSystems."/mnt/openclaw" = {
+    device = "//10.0.0.86/openclaw";
+    fsType = "cifs";
+    options = [ 
+      "credentials=/home/agnab/.smbcredentials" 
+      "vers=3.0" 
+      "rw" 
+      "uid=1000" 
+      "gid=100" 
+      "_netdev"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.device-timeout=3"
+    ];
+  };
+
 }

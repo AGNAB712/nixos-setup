@@ -28,12 +28,17 @@
       # withOpenASAR = true; # can do this here too
       withVencord = true;
     })
+    vesktop
     rar
     openspeedrun
     keyd
     parsec-bin
     py7zr
     noisetorch
+    slurp
+    fuzzel
+    qbittorrent
+    wl-clicker
   ];
 
   programs.noisetorch.enable = true;
@@ -46,7 +51,6 @@
     openFirewall = true;
   };
 
-  xdg.portal.wlr.enable = true;
 
   services.tailscale = {
     enable = true;
