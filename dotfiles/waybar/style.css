@@ -107,3 +107,50 @@ tooltip label {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+#workspaces {
+    margin: 1px;
+    padding: 0px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+#workspaces button {
+    padding: 4px 0px;
+    margin: 3px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: @secondary;
+    transition: all 0.15s ease;
+    min-width: 14px;
+}
+
+#workspaces button:hover {
+    background-color: @surface_bright;
+    color: @on_surface;
+}
+
+#workspaces button.active {
+    background-color: @surface_bright;
+    color: @on_surface;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#workspaces button.empty {
+    opacity: 0.4;
+}
+
+#workspaces button.urgent {
+    background-color: #ff5555;
+    color: #000000;
+}
+
+#workspaces button.current_output {
+    border-bottom: 2px solid @primary;
+}
+
+#workspaces button.overview {
+    font-weight: bold;
+    background-color: @surface_bright;
+}

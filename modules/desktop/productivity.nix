@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }:
+# Productivity focused packages and configurations
+{ config, pkgs, inputs, lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -20,7 +21,6 @@
     openssh
     blender
     android-studio
-    libreoffice
     bottles
     kdePackages.kdenlive
     feishin
@@ -32,7 +32,7 @@
     pkgs.kdePackages.dolphin-plugins
     pkgs.kdePackages.baloo-widgets
     pkgs.kdePackages.baloo
-    pkgs.kdePackages.kservice 
+    pkgs.kdePackages.kservice
     pkgs.kdePackages.ark
     pkgs.xdg-utils
     pkgs.xdg-desktop-portal
@@ -40,19 +40,30 @@
     python313Packages.uvicorn
     comic-mandown
     cloudflared
+    docker
+
+    openclaw
   ];
 
-  environment.etc."xdg/menus/applications.menu".source =
-  "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+  virtualisation.docker.enable = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "openclaw-2026.5.7"
+  ];
+
+  # Set the KDE Plasma applications menu
+  environment.etc."xdg/menus/applications.menu".source =
+    "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+
+  # Flatpak packages to install
   services.flatpak.packages = [
     "com.bambulab.BambuStudio"
+    "com.discordapp.Discord"
   ];
 
+  # Environment variable tweaks for librewolf
   environment.etc."profile.d/librewolf/sh".text = ''
     export MOZ_ENABLE_WAYLAND=1
     export LIBGL_DRI3_DISABLE=1
   '';
-
-  
 }

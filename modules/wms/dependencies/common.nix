@@ -13,7 +13,6 @@
     gtk-engine-murrine
     playerctl
     eww
-    maia-icon-theme
     cava
     imagemagick 
     jq
@@ -22,7 +21,30 @@
     kdePackages.dolphin
     kdePackages.qtsvg
     kdePackages.kio-extras
+    hypridle
+    wl-clipboard
+   (pkgs.writeShellScriptBin "cliphisty" ''
+      #!/usr/bin/env bash
+
+      selection=$(
+        cliphist list |
+          ${pkgs.rofi}/bin/rofi \
+            -dmenu \
+            -i \
+            -p "Clipboard" \
+            -theme "$HOME/nixos/dotfiles/rofi/launchers/copy.rasi"
+      )
+
+      [ -n "$selection" ] && cliphist decode <<< "$selection" | wl-copy
+    '')
+    (pkgs.writeShellScriptBin "sscpy" ''
+      #!/usr/bin/env bash
+
+      grim -t png - | wl-copy --type image/png
+    '')
   ];  
+
+
 
   #adding this here so that i can bypass the wrapped rofi so that i can add a custom theme for displaying wifi through dmenu
   home-manager.users.agnab = {
@@ -30,7 +52,7 @@
       [dmenu]
       dmenu_command = ${pkgs.rofi}/bin/rofi -theme ~/nixos/dotfiles/rofi/launchers/wifi.rasi
       active_chars = ==
-      highlight = True
+      highlight = False
       highlight_fg =
       highlight_bg =
       highlight_bold = True
@@ -57,5 +79,9 @@
       [nmdm]
       rescan_delay = 5
     '';
+    services.cliphist = {
+      enable = true;
+      allowImages = true;
+    };
   };
 }

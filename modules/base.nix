@@ -1,14 +1,17 @@
 { config, pkgs, ... }:
 
+# helper scripts
 let
   flakePath = "$HOME/nixos";
 in
 {
   environment.systemPackages = with pkgs; [
-    jq
+    jq 
+
+    # shell script for nixos-rebuild based on hostname
     (pkgs.writeShellScriptBin "nixr" ''
       #!/usr/bin/env bash
-      #thanks chatgpt
+      # thanks chatgpt
       set -euo pipefail
 
       flakePath="$HOME/nixos"
@@ -20,6 +23,7 @@ in
       exec sudo nixos-rebuild switch --flake "$flakePath#$flakeTarget"
     '')
 
+    # open config in codium
     (pkgs.writeShellScriptBin "nixy" ''
       exec codium "$HOME/nixos"
     '')
@@ -33,6 +37,7 @@ in
       matugen image "$RANDOM_WALLPAPER"
     '')
 
-    vscodium
+    vscodium 
   ];
 }
+

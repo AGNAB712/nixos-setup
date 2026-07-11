@@ -13,7 +13,6 @@
       ../../modules/desktop/productivity.nix
       ../../modules/desktop/util.nix
       ../../modules/desktop/gaming.nix
-      ../../modules/desktop/openclaw.nix
 
       #mounts
       ../../modules/mounts/serverlocal.nix

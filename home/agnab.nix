@@ -25,7 +25,5 @@
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
-
- 
   
 }

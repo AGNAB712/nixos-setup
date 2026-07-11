@@ -12,7 +12,7 @@
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun";
-    show-icons:                 false;
+    show-icons:                 true;
     display-drun:               "";
     display-run:                "";
     display-filebrowser:        "";
@@ -23,13 +23,13 @@ configuration {
 
 /*****----- Global Properties -----*****/
 @import "~/nixos/dotfiles/rofi/colors.rasi"
+@import                          "shared/fonts.rasi"
 
 * {
     border-colour:               var(selected);
     handle-colour:               var(selected);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
-    alternate-background:        var(backgroundalt);
     transparent-background:      var(backgroundtransparent);
     normal-background:           var(background);
     normal-foreground:           var(foreground);
@@ -56,12 +56,13 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    west;
-    anchor:                      south;
+    location:                    east;
+    anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
-    x-offset:                    10px;
-    y-offset:                    -10px;
+    width:                       549px;
+    height:                      1000px;
+    x-offset:                    0px;
+    y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
@@ -70,6 +71,7 @@ window {
     border-radius:               15px;
     cursor:                      "default";
     background-color:            transparent;
+    background-image:            url("~/nixos/dotfiles/rofi/images/networkbg.png", height);
 }
 
 /*****----- Main Box -----*****/
@@ -77,8 +79,7 @@ mainbox {
     enabled:                     true;
     spacing:                     5px;
     padding:                     20px;
-    background-color:            @transparent-background;
-    opacity:                     0.5;
+    background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
 }
 
@@ -86,11 +87,11 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     0px;
-    margin:                      0px 400px 0px 0px;
-    padding:                     35px;
+    margin:                      0px 0px 0px 0px;
+    padding:                     0px 0px -45px 0px;
     border-radius:               0px;
     background-color:            transparent;
-    background-image:            url("~/nixos/dotfiles/rofi/images/outline.png", both);
+    background-image:            url("~/nixos/dotfiles/rofi/images/searchcopy.png", width);
     children:                    [ "entry" ];
 }
 
@@ -105,7 +106,7 @@ textbox-prompt-colon {
 }
 entry {
     enabled:                     true;
-    padding:                     8px 12px;
+    padding:                     85px 60px;
     border:                      0px;
     background-color:            transparent;
     text-color:                  var(background);
@@ -130,15 +131,15 @@ listview {
     fixed-columns:               true;
     
     spacing:                     10px;
-    margin:                      0px 470px 0px 40px;
-    padding:                     10px 10px 100px 10px;
+    margin:                      0px 0px 430px 0px;
+    padding:                     10px 10px 10px 10px;
     border:                      0px;
     border-radius:               0px;
     border-color:                white;
     background-color:            transparent;
-    x-offset:                    10px;
-    y-offset:                    0px;
-    background-image:            url("~/nixos/dotfiles/rofi/images/receipt.png", both);
+    x-offset:                    100px;
+    y-offset:                    100px;
+    background-image:            url("~/nixos/dotfiles/rofi/images/boxcopy.png", both);
     cursor:                      "default";
 }
 
@@ -146,12 +147,12 @@ listview {
 element {
     enabled:                     true;
     spacing:                     10px;
-    margin:                      0px;
-    padding:                     5px 10px;
+    margin:                      1px 70px 0px 45px;
+    padding:                     3px 10px;
     border:                      0px;
     border-radius:               9px;
     border-color:                white;
-    background-color:            rgba(0, 0, 0, 1);
+    background-color:            rgba(0, 0, 0, 0.15);
     text-color:                  var(background);
     cursor:                      pointer;
 }
@@ -161,7 +162,7 @@ element selected.normal {
 }
 element-icon {
     background-color:            transparent;
-    size:                        40px;
+    size:                        0px;
     cursor:                      inherit;
 }
 element-text {

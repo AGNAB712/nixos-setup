@@ -1,5 +1,6 @@
 { config, pkgs, lib, inputs, wrappers, ... }:
 
+# hyprland compositor configuration
 {
   imports =
     [
@@ -7,5 +8,7 @@
       ./dependencies/gtk.nix
       ./dependencies/wrapped.nix
     ];
+
   programs.hyprland.enable = true;
 }
+

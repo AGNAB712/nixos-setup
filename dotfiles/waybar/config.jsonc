@@ -6,7 +6,8 @@
     "margin-bottom": 0,
     "modules-left": [
         "clock",
-        "custom/divider"
+        "custom/divider",
+        "ext/workspaces"
     ],
     "modules-center": [
         "wlr/taskbar"
@@ -63,13 +64,6 @@
     "custom/divider": {
         "format": " ",
         "tooltip": false
-    },
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "persistent-workspaces": {
-            "*": 5, // 5 workspaces by default on every monitor
-            "HDMI-A-1": 3 // but only three on HDMI-A-1
-        }
     },
     "group/traymenu": {
     "orientation": "inherit",
@@ -135,5 +129,6 @@
         "interval": 2,
         "format": "{}",
         "on-click": "bash -c 'if qs ipc call cool getVisible | grep -q true; then qs ipc call cool setVisible false; else qs ipc call cool setVisible true; fi'"
-    }
+    },
+    "ext/workspaces": { "format": "{name}", "sort-by-number": true, "on-click": "activate" }
 }

@@ -1,17 +1,17 @@
 { pkgs, ... }:
 
+# mullvad VPN configuration and related packages
 {
   environment.systemPackages = with pkgs; [
-    mullvad
-    mullvad-vpn
+    mullvad #client
+    mullvad-vpn  #service
   ];
 
   services.resolved.enable = true; 
-  #lets mullvad work, before i got it to connect but the nameservers seemed fucked up
 
   services.mullvad-vpn = {
     enable = true;
     package = pkgs.mullvad-vpn;
   };
-  #have to specify the package because it isn't updated yet
 }
+

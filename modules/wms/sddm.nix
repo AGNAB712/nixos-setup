@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }:
 
+# sddm display manager configuration (with mango stuff)
 let
   sddmCorners = pkgs.callPackage ./../../packages/sddm-corners/sddm-corners.nix {};
   mangowcSession = pkgs.runCommand "mangowc-session" {
@@ -24,13 +25,14 @@ in
 
   services.displayManager.sddm = {
     enable = true;
-    theme = "corners";
+    theme = "corners";  
     extraPackages = [ sddmCorners pkgs.qt6.qt5compat ];
     wayland.enable = true;
   };
+
   services.xserver.enable = true;
+
   services.displayManager.sessionPackages = [ mangowcSession ];
   services.displayManager.defaultSession = "mangowc";
-
-
 }
+

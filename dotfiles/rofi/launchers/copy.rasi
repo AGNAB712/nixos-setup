@@ -1,0 +1,194 @@
+/**
+ *
+ * Original Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Modified version by AGNAB712
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               "";
+    display-run:                "";
+    display-filebrowser:        "";
+    display-window:             "";
+	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	window-format:              "{w}   {c}   {t}";
+}
+
+/*****----- Global Properties -----*****/
+@import "~/nixos/dotfiles/rofi/colors.rasi"
+@import                          "shared/fonts.rasi"
+
+* {
+    border-colour:               var(selected);
+    handle-colour:               var(selected);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    transparent-background:      var(backgroundtransparent);
+    normal-background:           var(background);
+    normal-foreground:           var(foreground);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(background);
+    active-background:           var(active);
+    active-foreground:           var(background);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(background);
+    selected-urgent-background:  var(active);
+    selected-urgent-foreground:  var(background);
+    selected-active-background:  var(urgent);
+    selected-active-foreground:  var(background);
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+    alternate-urgent-background: var(urgent);
+    alternate-urgent-foreground: var(background);
+    alternate-active-background: var(active);
+    alternate-active-foreground: var(background);
+    font: "FreeMono Bold 12";
+}
+
+/*****----- Main Window -----*****/
+window {
+    /* properties for window widget */
+    transparency:                "real";
+    location:                    west;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       549px;
+    height:                      1000px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    /* properties for all widgets */
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border-radius:               15px;
+    cursor:                      "default";
+    background-color:            transparent;
+    background-image:            url("~/nixos/dotfiles/rofi/images/copybg.png", height);
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     5px;
+    padding:                     20px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px 0px 0px 0px;
+    padding:                     0px 0px -45px 0px;
+    border-radius:               0px;
+    background-color:            transparent;
+    background-image:            url("~/nixos/dotfiles/rofi/images/searchcopy.png", width);
+    children:                    [ "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    padding:                     8px 11px;
+    border-radius:               8px;
+    background-color:            white;
+    text-color:                  black;
+    str:                         "";
+}
+entry {
+    enabled:                     true;
+    padding:                     85px 60px;
+    border:                      0px;
+    background-color:            transparent;
+    text-color:                  var(background);
+    cursor:                      text;
+    placeholder:                 "Search...";
+    placeholder-color:           inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    margin:                      0px 0px 430px 0px;
+    padding:                     10px 10px 10px 10px;
+    border:                      0px;
+    border-radius:               0px;
+    border-color:                white;
+    background-color:            transparent;
+    x-offset:                    100px;
+    y-offset:                    100px;
+    background-image:            url("~/nixos/dotfiles/rofi/images/boxcopy.png", both);
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      1px 70px 1px 45px;
+    padding:                     5px 10px;
+    border:                      0px;
+    border-radius:               9px;
+    border-color:                white;
+    background-color:            rgba(0, 0, 0, 0.15);
+    text-color:                  var(background);
+    cursor:                      pointer;
+}
+element selected.normal {
+    background-color:            var(background);
+    text-color:                  var(active);
+}
+element-icon {
+    background-color:            transparent;
+    size:                        0px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Message -----*****/
+error-message {
+    padding:                     20px;
+    background-color:            transparent;
+    text-color:                  white;
+}
+message {
+    padding:                     0px;
+    background-color:            inherit;
+    text-color:                  #FF9030;
+}
+textbox {
+    padding:                     0px;
+    border-radius:               0px;
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}

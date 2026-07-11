@@ -1,10 +1,12 @@
 { pkgs, ... }:
 
+# mounts for local CIFS shares on homeserver
 {
   environment.systemPackages = with pkgs; [
-    samba
+    samba 
   ];
 
+  # main homeserver data
   fileSystems."/mnt/homeserver" = {
     device = "//10.0.0.86/Data";
     fsType = "cifs";
@@ -21,6 +23,7 @@
     ];
   };
 
+  # main homeserver storage
   fileSystems."/mnt/storage" = {
     device = "//10.0.0.86/mnt";
     fsType = "cifs";
@@ -37,6 +40,7 @@
     ];
   };
 
+  # for openclaw agent
   fileSystems."/mnt/openclaw" = {
     device = "//10.0.0.86/openclaw";
     fsType = "cifs";
@@ -54,3 +58,4 @@
   };
 
 }
+

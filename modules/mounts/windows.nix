@@ -1,5 +1,6 @@
 { pkgs, ... }:
 
+# mount windows
 {
   fileSystems."/mnt/windows" = {
     device = "/dev/nvme0n1p4";
@@ -9,5 +10,6 @@
       "users"
     ];
   };
-  # sudo mount -t ntfs /dev/nvme0n1p4 /mnt/windows
+
 }
+
