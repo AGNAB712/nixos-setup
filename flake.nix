@@ -163,7 +163,11 @@
                 wrappers.lib.wrapPackage {
                   inherit pkgs;
 
-                  package = mango.packages.${system}.mango;
+                  package = mango.packages.${system}.mango.overrideAttrs (old: {
+                    buildInputs = old.buildInputs ++ [
+                      pkgs.wlroots_0_20
+                    ];
+                  });
 
                   flags = {
                     "-c" = "$HOME/nixos/dotfiles/mango/config.conf";

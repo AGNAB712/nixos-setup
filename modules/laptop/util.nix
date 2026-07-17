@@ -19,7 +19,6 @@
     jq
     brightnessctl
     powertop
-    rembg
     pkgs.xdg-desktop-portal-hyprland
     system-config-printer
     colloid-gtk-theme
