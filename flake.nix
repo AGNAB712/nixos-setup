@@ -30,6 +30,7 @@
     };
 
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
+
   };
 
   outputs =

@@ -35,6 +35,8 @@
     qbittorrent
     wl-clicker
     pulseaudioFull
+    conky
+    appimage-run
   ];
 
   # Enable noisetorch globally

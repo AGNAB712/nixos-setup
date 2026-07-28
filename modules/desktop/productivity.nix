@@ -41,8 +41,10 @@
     comic-mandown
     cloudflared
     docker
-
     openclaw
+    codex
+    wine
+    libreoffice-qt
   ];
 
   virtualisation.docker.enable = true;

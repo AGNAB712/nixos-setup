@@ -6,9 +6,16 @@
     ../../modules/base.nix
     ../../modules/home-server/server.nix
     ../../modules/home-server/agnabot.nix
+    ../../modules/home-server/homeserver-dashboard.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  services.homeserver-dashboard = {
+    enable = true;
+    port = 3000;
+    openFirewall = true;
+  };
 
 
   boot.loader.systemd-boot.enable = true;

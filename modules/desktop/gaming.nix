@@ -30,6 +30,7 @@
     android-tools
     slimevr
     blockbench
+    moonlight-qt
   ];
 
   # Enable services relevant to gaming
