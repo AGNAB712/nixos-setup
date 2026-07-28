@@ -53,7 +53,7 @@ in
       after = [ "network-online.target" "docker.service" ];
       wants = [ "network-online.target" ];
 
-      path = [ pkgs.nodejs_20 ];
+      path = [ pkgs.nodejs ];
 
       environment = {
         NODE_ENV = "production";
@@ -66,7 +66,7 @@ in
         User = cfg.user;
         Group = cfg.group;
         WorkingDirectory = cfg.packageDir;
-        ExecStart = "${pkgs.nodejs_20}/bin/npm start";
+        ExecStart = "${pkgs.nodejs}/bin/npm start";
         Restart = "on-failure";
         RestartSec = "5s";
       };
