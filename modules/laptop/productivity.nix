@@ -17,7 +17,7 @@
     python3
     gobject-introspection
     python313Packages.pip
-
+    appimage-run
   ];
 
 

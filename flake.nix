@@ -180,6 +180,52 @@
             nixos-plymouth.nixosModules.default
           ];
         };
+
+        stoutbook = nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          specialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+            ./hosts/stoutbook/configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
+
+              home-manager.users.agnab = import ./home/agnab.nix;
+            }
+
+            ({ pkgs, ... }: {
+              _module.args.wrappers = wrappers.lib;
+
+              programs.mango.package =
+                wrappers.lib.wrapPackage {
+                  inherit pkgs;
+
+                  package = mango.packages.${system}.mango.overrideAttrs (old: {
+                    buildInputs = old.buildInputs ++ [
+                      pkgs.wlroots_0_20
+                    ];
+                  });
+
+                  flags = {
+                    "-c" = "$HOME/nixos/dotfiles/mango/config.conf";
+                  };
+                };
+            })
+
+            mango.nixosModules.mango
+            nixos-plymouth.nixosModules.default
+          ];
+        };
       };
     };
 }

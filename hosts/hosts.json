@@ -1,5 +1,6 @@
 {
   "thinkpad": "laptop",
   "agnabspc": "desktop",
-  "homeserver": "homeserver"
+  "homeserver": "homeserver",
+  "stoutbook": "stoutbook"
 }
