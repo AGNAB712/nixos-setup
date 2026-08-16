@@ -3,8 +3,7 @@
 {
     # Regularly check battery status
     systemd.user.services.battery_monitor = {
-      wants = [ "display-manager.service" ];
-      wantedBy = [ "graphical-session.target" ];
+      wantedBy = [ "default.target" ];
       script = ''
         prev_val=100
         check () { [[ $1 -ge $val ]] && [[ $1 -lt $prev_val ]]; }

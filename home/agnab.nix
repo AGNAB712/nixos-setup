@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 
 let
@@ -74,6 +74,18 @@ in
     settings.general = {
       adjustment-method = "wayland";
       fade = 1;
+    };
+    
+  };
+
+  systemd.user.services.gammastep = {
+    Unit = {
+      After = [ "default.target" ];
+      PartOf = lib.mkForce [ ];
+    };
+
+    Install = {
+      WantedBy = lib.mkForce [ "default.target" ];
     };
   };
 
