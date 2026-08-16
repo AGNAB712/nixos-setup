@@ -26,7 +26,8 @@
       #global
       ../../modules/base.nix
       ../../modules/fonts.nix
-      ../../modules/mullvad.nix
+      ../../modules/vpns/mullvad.nix
+      ../../modules/vpns/tailscale.nix
     ];
   nixpkgs.overlays = [
     (final: prev: {

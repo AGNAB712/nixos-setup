@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Home Server New Tab",
+  "version": "1.0.0",
+  "description": "Replaces the Firefox/LibreWolf new tab page with a local home server dashboard.",
+  "permissions": [
+    "http://homeserver.local:3000/*"
+  ],
+  "content_security_policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; frame-src http://homeserver.local:3000; child-src http://homeserver.local:3000",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "home-server-new-tab@local"
+    }
+  }
+}

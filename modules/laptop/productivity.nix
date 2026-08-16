@@ -20,6 +20,17 @@
     appimage-run
   ];
 
+  programs.dconf.profiles.user.databases = [{
+  settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+}];
+environment.sessionVariables = {
+  QT_QPA_PLATFORMTHEME = "qt6ct";
+  QT_STYLE_OVERRIDE = "kvantum";
+};
+
+  services.openssh.enable = true;
+
+
 
   services.flatpak.packages = [
     "com.bambulab.BambuStudio"

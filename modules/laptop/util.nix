@@ -25,7 +25,12 @@
     cameractrls
     cameractrls-gtk4
     dunst
+    gammastep
+    libreoffice-qt
   ];
+
+  services.geoclue2.enable = true;
+  location.provider = "geoclue2";
 
   /*gtk.theme.package = pkgs.colloid-gtk-theme;
   gtk.theme.name = "Colloid-Dark";*/
@@ -66,9 +71,6 @@
     openFirewall = true;
   };
 
-  services.tailscale = {
-    enable = true;
-  };
   services.pipewire = {
     enable = true;
     alsa.enable = true;

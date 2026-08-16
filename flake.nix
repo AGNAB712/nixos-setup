@@ -217,7 +217,7 @@
                   });
 
                   flags = {
-                    "-c" = "$HOME/nixos/dotfiles/mango/config.conf";
+                    "-c" = "$HOME/nixos/dotfiles/mango/laptop-config.conf";
                   };
                 };
             })

@@ -44,7 +44,23 @@
     '')
   ];  
 
+  boot = {
+    # Don't show systemd/udev messages.
+    consoleLogLevel = 3;
+    initrd.verbose = false;
 
+    kernelParams = [
+      "quiet"
+      "splash"
+      "rd.systemd.show_status=auto"
+      "rd.udev.log_level=3"
+    ];
+
+    loader.timeout = 0;
+
+    # Important for getting Plymouth running early.
+    initrd.systemd.enable = true;
+  };
 
   #adding this here so that i can bypass the wrapped rofi so that i can add a custom theme for displaying wifi through dmenu
   home-manager.users.agnab = {

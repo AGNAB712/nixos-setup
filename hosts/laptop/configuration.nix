@@ -19,7 +19,8 @@
       #global
       ../../modules/base.nix
       ../../modules/fonts.nix
-      ../../modules/mullvad.nix
+      ../../modules/vpns/mullvad.nix
+      ../../modules/vpns/tailscale.nix
 
       #mounts
       ../../modules/mounts/servertailscale.nix
