@@ -39,18 +39,6 @@ in
   home.username = "agnab";
   home.homeDirectory = "/home/agnab";
   home.stateVersion = "25.05";
-
-
-  programs.git = {
-    enable = true;
-    lfs.enable = false;
-    settings = {
-      user = {
-        name = "AGNAB712";
-        email = "133778639+AGNAB712@users.noreply.github.com";
-      };
-    };
-  };
   
   programs.zsh.enable = true;
 
