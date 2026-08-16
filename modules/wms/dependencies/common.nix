@@ -8,7 +8,7 @@
     qt5.qtquickcontrols
     libnotify
     nwg-look
-    swww
+    awww
     adwaita-icon-theme
     gtk-engine-murrine
     playerctl
