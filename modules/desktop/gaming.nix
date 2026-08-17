@@ -31,6 +31,7 @@
     slimevr
     blockbench
     moonlight-qt
+    vinegar
   ];
 
   # Enable services relevant to gaming

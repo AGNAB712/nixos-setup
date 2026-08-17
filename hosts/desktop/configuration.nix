@@ -86,7 +86,15 @@
 
   users.users.agnab = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "plugdev" "uucp" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "plugdev" "uucp" "audio" "libvirtd" "kvm" ];
+  };
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      swtpm.enable = true;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;

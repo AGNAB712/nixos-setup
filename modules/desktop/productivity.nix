@@ -43,8 +43,15 @@
     docker
     openclaw
     codex
-    wine
+    wineWow64Packages.staging
+    winetricks
     libreoffice-qt
+    virt-manager
+    qemu_kvm
+    swtpm
+    cmake
+    teams-for-linux
+    firefox
   ];
 
   virtualisation.docker.enable = true;

@@ -43,6 +43,7 @@ let
       "--config" = "$HOME/nixos/dotfiles/fastfetch/config.jsonc";
     };
   };
+
 in 
 {
   environment.systemPackages = with pkgs; [
@@ -52,5 +53,11 @@ in
     waybar
     rofi
     fastfetch
+    # shell script for fastfetch alias
+    (pkgs.writeShellScriptBin "ff" ''
+      #!/usr/bin/env bash
+      exec fastfetch
+    '')
+
   ];  
 }
