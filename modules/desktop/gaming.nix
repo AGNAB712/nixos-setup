@@ -36,6 +36,7 @@
 
   # Enable services relevant to gaming
   services.wivrn.enable = true;
+  services.udev.packages = [ pkgs.slimevr ];
   services.flatpak.enable = true;
   services.sunshine = {
     enable = true;
@@ -47,8 +48,8 @@
   networking.firewall = {
     enable = true;
 
-    allowedTCPPorts = [ 9757 ];
-    allowedUDPPorts = [ 9757 ];
+    allowedTCPPorts = [ 9757 6969 ];
+    allowedUDPPorts = [ 9757 6969 ];
   };
 
   services.flatpak.packages = [
