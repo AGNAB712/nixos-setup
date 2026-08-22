@@ -25,6 +25,7 @@
 
       #global
       ../../modules/base.nix
+      ../../modules/bootloader.nix
       ../../modules/fonts.nix
       ../../modules/vpns/mullvad.nix
       ../../modules/vpns/tailscale.nix

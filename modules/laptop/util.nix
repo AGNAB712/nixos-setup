@@ -24,7 +24,6 @@
     colloid-gtk-theme
     cameractrls
     cameractrls-gtk4
-    dunst
     gammastep
     libreoffice-qt
   ];

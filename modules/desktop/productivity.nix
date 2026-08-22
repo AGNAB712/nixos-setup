@@ -23,7 +23,7 @@
     android-studio
     bottles
     kdePackages.kdenlive
-    feishin
+    tauon
     image-roll
     glib
     gsettings-desktop-schemas

@@ -18,6 +18,7 @@
 
       #global
       ../../modules/base.nix
+      ../../modules/bootloader.nix
       ../../modules/fonts.nix
       ../../modules/vpns/mullvad.nix
       ../../modules/vpns/tailscale.nix
@@ -28,7 +29,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  boot.loader.systemd-boot.enable = true;
+  #boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "stoutbook"; # Define your hostname.
