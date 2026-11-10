@@ -23,7 +23,6 @@
     mission-center
     system-config-printer
     obs-studio
-    vesktop
     rar
     openspeedrun
     keyd
@@ -37,6 +36,7 @@
     pulseaudioFull
     conky
     appimage-run
+    love
   ];
 
   # Enable noisetorch globally

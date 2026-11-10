@@ -1,0 +1,75 @@
+# Black and white ASCII GRUB theme
+#
+# Based on the Breeze GRUB theme by Gustavo Castro
+# Licensed under Creative Commons Attribution-ShareAlike 3.0
+
+desktop-color: "#000000"
+
+title-text: "+-- SELECT A BOOT OPTION --+"
+title-font: "FreeMono Regular 16"
+title-color: "#ffffff"
+
+message-font: "FreeMono Regular 16"
+message-color: "#ffffff"
+
+terminal-font: "FreeMono Regular 16"
+terminal-box: "terminal_*.png"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "1"
+terminal-height: "1"
+terminal-border: "0"
+
++ image {
+  left = 5%
+  top = 30%
+
+  file = "side-image-sized.png"
+}
+
++ boot_menu {
+  left = 40%
+  width = 52%
+  top = 30%
+  height = 40%
+
+  item_font = "FreeMono Regular 16"
+  item_color = "#707070"
+  item_height = 48
+  item_icon_space = 8
+  item_spacing = 5
+  item_padding = 8
+
+  selected_item_font = "FreeMono Regular 16"
+  selected_item_color = "#ffffff"
+  selected_item_pixmap_style = "ascii_select_*.png"
+
+  icon_height = 48
+  icon_width = 48
+
+  scrollbar = false
+}
+
++ label {
+  text = "+----------------------------------------------+"
+
+  left = 40%
+  width = 52%
+  top = 25%
+
+  font = "FreeMono Regular 16"
+  color = "#ffffff"
+  align = "left"
+}
+
++ label {
+  text = "+----------------------------------------------+"
+
+  left = 40%
+  width = 52%
+  top = 72%
+
+  font = "FreeMono Regular 16"
+  color = "#ffffff"
+  align = "left"
+}

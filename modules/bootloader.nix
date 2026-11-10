@@ -1,35 +1,51 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
-    boot = {
-        loader.grub = {
-            enable = true;
-            device = "nodev";
-            efiSupport = true;
-            useOSProber = true;
-            splashImage = null;
-        };
-        loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader.grub = {
+      enable = true;
+      theme = ../dotfiles/grub;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+      copyKernels = false;
+      splashImage = null;
+    };
 
-        # Don't show systemd/udev messages.
-        consoleLogLevel = 3;
-        initrd.verbose = false;
+    loader.efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/efi";
+    };
 
-        
+    # Keep the handoff from GRUB to Plymouth quiet.
+    consoleLogLevel = 0;
+    initrd.verbose = false;
 
-        kernelParams = [
-        "quiet"
-        "splash"
-        "rd.systemd.show_status=auto"
-        "rd.udev.log_level=3"
-        ];
+    kernelParams = [
+      "quiet"
+      "splash"
+      "systemd.show_status=false"
+      "rd.systemd.show_status=false"
+      "udev.log_level=3"
+      "rd.udev.log_level=3"
+      "vt.global_cursor_default=0"
+      "nvidia_drm.modeset=1"
+    ];
 
-        loader.timeout = 5;
+    loader.timeout = 5;
 
-        # Important for getting Plymouth running early.
-        initrd.systemd.enable = true;
+    plymouth = {
+      enable = true;
+      theme = "nixos-plymouth";
+    };
+
+    initrd.systemd.enable = false;
   };
 
-  hardware.amdgpu.initrd.enable = true;
+  boot.initrd.kernelModules = [
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
 }
-

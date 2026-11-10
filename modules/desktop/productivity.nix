@@ -2,6 +2,19 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
+  nixpkgs.overlays = [
+    (final: prev: {
+      tauon = prev.tauon.overrideAttrs (old: {
+        postPatch = (old.postPatch or "") + ''
+          substituteInPlace src/tauon/t_modules/t_main.py \
+            --replace-fail 'from pypresence import ActivityType, StatusDisplayType, Presence' 'from lynxpresence import ActivityType, StatusDisplayType, Presence' \
+            --replace-fail 'is_module_loaded("pypresence", "ActivityType")' 'is_module_loaded("lynxpresence", "ActivityType")' \
+            --replace-fail 'Missing dependency python-pypresence' 'Missing dependency lynxpresence'
+        '';
+      });
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     librewolf
     pywalfox-native
@@ -45,19 +58,30 @@
     codex
     wineWow64Packages.staging
     winetricks
-    libreoffice-qt
     virt-manager
     qemu_kvm
     swtpm
     cmake
     teams-for-linux
-    firefox
+    nix-index
   ];
 
-  virtualisation.docker.enable = true;
+  programs.droidcam.enable = true;
+  services.usbmuxd.enable = true;
+
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      droidcam-obs
+    ];
+  };
+
+  virtualisation.docker.enable = false;
 
   nixpkgs.config.permittedInsecurePackages = [
     "openclaw-2026.5.7"
+    "pnpm-9.15.9"
   ];
 
   # Set the KDE Plasma applications menu

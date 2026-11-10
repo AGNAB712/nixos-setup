@@ -21,7 +21,7 @@ window#waybar {
         @surface_bright 17px,
         @surface_bright 100%
     );*/
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #taskbar button {

@@ -52,7 +52,7 @@
   security.pam.services.hyprland.enableGnomeKeyring = true;
   security.polkit.enable=true;
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
   
   networking.hostName = "agnabspc";
