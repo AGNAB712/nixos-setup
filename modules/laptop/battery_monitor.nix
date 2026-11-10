@@ -1,7 +1,9 @@
 { pkgs, lib, ... }:
 
 {
-    # Regularly check battery status
+    environment.systemPackages = with pkgs; [
+      acpi
+    ];
     systemd.user.services.battery_monitor = {
       wantedBy = [ "default.target" ];
       script = ''

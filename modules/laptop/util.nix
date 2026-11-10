@@ -28,6 +28,8 @@
     libreoffice-qt
   ];
 
+  services.flatpak.enable = true;
+
   services.geoclue2.enable = true;
   location.provider = "geoclue2";
 

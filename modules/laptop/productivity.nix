@@ -20,11 +20,16 @@
     python313Packages.pip
     appimage-run
     tauon
+    eclipses.eclipse-java
+    jdk
+    flutter
   ];
 
+  programs.nix-ld.enable = true;
+
   programs.dconf.profiles.user.databases = [{
-  settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-}];
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  }];
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_STYLE_OVERRIDE = "kvantum";

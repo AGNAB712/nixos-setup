@@ -59,6 +59,17 @@ tooltip label {
     margin-bottom: -7px;
 }
 
+#clock-alt {
+    font-size: 25px;
+    font-family: 'FreeMono';
+    font-style: oblique;
+
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 0px;
+    margin-bottom: -7px;
+}
+
 #custom-cat-ear {
   background-image: url("/home/agnab/nixos/dotfiles/hidden/desktop icon pngs (Mac)/flower.png");
   background-size: 95% 95%;

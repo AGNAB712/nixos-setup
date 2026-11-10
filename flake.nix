@@ -31,6 +31,11 @@
 
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
 
+    notion-desktop = {
+      url = "github:heytcass/notion-mac-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -43,6 +48,7 @@
     , openclaw
     , mango
     , nixos-plymouth
+    , notion-desktop
     , ...
     }@inputs:
 
@@ -175,7 +181,7 @@
                   };
                 };
             })
-
+            
             mango.nixosModules.mango
             nixos-plymouth.nixosModules.default
           ];
@@ -201,6 +207,12 @@
               };
 
               home-manager.users.agnab = import ./home/agnab.nix;
+            }
+
+            {
+              environment.systemPackages = [
+                notion-desktop.packages.x86_64-linux.default
+              ];
             }
 
             ({ pkgs, ... }: {

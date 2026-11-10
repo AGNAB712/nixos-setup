@@ -1,0 +1,53 @@
+diff --git a/src/layer/mapped.rs b/src/layer/mapped.rs
+--- a/src/layer/mapped.rs
++++ b/src/layer/mapped.rs
+@@ -8,3 +8,3 @@
+ use super::ResolvedLayerRules;
+-use crate::animation::Clock;
++use crate::animation::{Animation, Clock, Curve};
+ use crate::layout::shadow::Shadow;
+@@ -48,4 +48,6 @@
+     scale: f64,
+     /// Clock for driving animations.
+     clock: Clock,
++    /// Slide in the rofi layer surface when first mapped.
++    open_animation: Option<Animation>,
+ }
+@@ -72,5 +72,8 @@
+         // Shadows for layer surfaces need to be explicitly enabled.
+         shadow_config.on = false;
+         shadow_config.merge_with(&rules.shadow);
++        let open_animation = (surface.namespace() == "rofi").then(|| {
++            Animation::ease(clock.clone(), view_size.h, 0., 0., 250, Curve::EaseOutExpo)
++        });
+         Self {
+             surface,
+@@ -82,5 +82,6 @@
+             shadow: Shadow::new(shadow_config),
+             blur_config: config.blur,
+             clock,
++            open_animation,
+         }
+     }
+@@ -119,3 +119,4 @@
+     pub fn are_animations_ongoing(&self) -> bool {
+         self.rules.baba_is_float
++            || self.open_animation.as_ref().is_some_and(|animation| !animation.is_done())
+     }
+@@ -164,9 +164,12 @@
+     pub fn bob_offset(&self) -> Point<f64, Logical> {
+-        if !self.rules.baba_is_float {
+-            return Point::from((0., 0.));
++        let mut y = if self.rules.baba_is_float {
++            baba_is_float_offset(self.clock.now(), self.view_size.h)
++        } else {
++            0.
++        };
++        if let Some(animation) = &self.open_animation {
++            y += animation.value();
+         }
+-
+-        let y = baba_is_float_offset(self.clock.now(), self.view_size.h);
+         let y = round_logical_in_physical(self.scale, y);
+         Point::from((0., y))
+     }

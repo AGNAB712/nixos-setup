@@ -1,0 +1,30 @@
+﻿
+diff --git a/src/input/mod.rs b/src/input/mod.rs
+--- a/src/input/mod.rs
++++ b/src/input/mod.rs
+@@ -2746,7 +2746,10 @@
+             if let Some(mapped) = self.niri.window_under_cursor() {
+                 let window = mapped.window.clone();
+                 // Check if we need to start an interactive move.
+-                if button == Some(MouseButton::Left) && !pointer.is_grabbed() {
++                if button == Some(MouseButton::Left)
++                    && !pointer.is_grabbed()
++                    && (is_overview_open || !modifiers_from_state(mods).contains(Modifiers::SHIFT))
++                {
+                     let mod_down = modifiers_from_state(mods).contains(mod_key.to_modifiers());
+                     if is_overview_open || mod_down {
+                         let location = pointer.current_location();
+@@ -2779,7 +2782,12 @@
+                     }
+                 }
+                 // Check if we need to start an interactive resize.
+-                else if button == Some(MouseButton::Right) && !pointer.is_grabbed() {
++                else if (button == Some(MouseButton::Right)
++                    || (button == Some(MouseButton::Left)
++                        && modifiers_from_state(mods).contains(Modifiers::SHIFT)
++                        && !is_overview_open))
++                    && !pointer.is_grabbed()
++                {
+                     let mod_down = modifiers_from_state(mods).contains(mod_key.to_modifiers());
+                     if mod_down {
+                         let location = pointer.current_location();

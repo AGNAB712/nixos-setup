@@ -33,6 +33,6 @@ in
   services.xserver.enable = true;
 
   services.displayManager.sessionPackages = [ mangowcSession ];
-  services.displayManager.defaultSession = "mangowc";
+  services.displayManager.defaultSession = "niri";
 }
 
