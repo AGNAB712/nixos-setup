@@ -10,11 +10,18 @@
   # Enable xdg portals for wayland/gtk support
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    wlr = {
+      enable = true;
+      settings.screencast = {
+        chooser_type = "simple";
+        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+      };
+    };
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config = {
       common.default = lib.mkForce [ "wlr" "gtk" ];
       mango.default = lib.mkForce [ "wlr" "gtk" ];
+      mangowc.default = lib.mkForce [ "wlr" "gtk" ];
     };
   };
 
@@ -55,6 +62,7 @@
   services.flatpak.packages = [
     "org.vinegarhq.Sober"
     "com.modrinth.ModrinthApp"
+    "org.DolphinEmu.dolphin-emu"
   ];
 
   # Graphics hardware configuration

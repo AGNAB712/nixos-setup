@@ -2,6 +2,19 @@
 
 
 {
+  nixpkgs.overlays = [
+    (final: prev: {
+      tauon = prev.tauon.overrideAttrs (old: {
+        postPatch = (old.postPatch or "") + ''
+          substituteInPlace src/tauon/t_modules/t_main.py \
+            --replace-fail 'from pypresence import ActivityType, StatusDisplayType, Presence' 'from lynxpresence import ActivityType, StatusDisplayType, Presence' \
+            --replace-fail 'is_module_loaded("pypresence", "ActivityType")' 'is_module_loaded("lynxpresence", "ActivityType")' \
+            --replace-fail 'Missing dependency python-pypresence' 'Missing dependency lynxpresence'
+        '';
+      });
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     librewolf
     pywalfox-native

@@ -60,12 +60,12 @@
     "custom/cat-ear": {
         "format": " ",
         "tooltip": false,
-        "on-click": "rofi -show drun"
+        "on-click": "/home/agnab/garak/bin/garak-toggle"
     },
     "custom/smile": {
         "format": " ",
         "tooltip": false,
-        "on-click": "rofi -show drun"
+        "on-click": "/home/agnab/garak/bin/garak-toggle"
     },
     "custom/divider": {
         "format": " ",
