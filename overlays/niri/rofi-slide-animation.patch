@@ -13,10 +13,11 @@ diff --git a/src/layer/mapped.rs b/src/layer/mapped.rs
 +    /// Slide in the rofi layer surface when first mapped.
 +    open_animation: Option<Animation>,
  }
-@@ -72,5 +72,8 @@
+@@ -72,6 +72,9 @@
          // Shadows for layer surfaces need to be explicitly enabled.
          shadow_config.on = false;
          shadow_config.merge_with(&rules.shadow);
+ 
 +        let open_animation = (surface.namespace() == "rofi").then(|| {
 +            Animation::ease(clock.clone(), view_size.h, 0., 0., 250, Curve::EaseOutExpo)
 +        });
